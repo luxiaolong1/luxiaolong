@@ -1,0 +1,174 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>母婴之家-【登录】</title>
+		<link rel="stylesheet" type="text/css" href="{%static 'css/onload.css'%}"/>
+		<link rel="stylesheet" type="text/css" href="{%static 'css/footer.css'%}"/>
+		<link href="{%static 'css/jq22.css'%}" type="text/css" rel="stylesheet" />
+		
+		<script type="text/javascript" src="{%static  'js/jquery-1.12.0.js'%}"></script>
+		<script type="text/javascript" src="{%static  'js/hover.js'%}"></script>
+		<script src="{%static  'js/onload.js'%}" type="text/javascript" charset="utf-8"></script>
+		<script src="{%static  'js/footer.js'%}" type="text/javascript" charset="utf-8"></script>
+		<script src="{%static  'js/emailAutoComplete.js'%}"></script>
+		<script src="{%static  'js/jquery.cookie.js'%}"></script>
+		
+	</head>
+	<body>
+		<div class="header">
+			<div class="header_top">
+				<div class="header_top_box">
+					<div class="header_top_box_left">
+						<ul>
+							<li id="goHome">母婴之家</li>
+							<li>母婴海淘</li>
+							<li class="header_top_box_left_last-child"><span class="iphone"></span>手机版</li>
+						</ul>
+					</div>
+					<div class="header_top_box_right">
+						<ul>
+							<li><span>欢迎来到母婴之家！</span>&nbsp;&nbsp;<div><a class="orange" href="onload.html">[登录]</a>&nbsp;<a class="orange" href="register.html">[免费注册]</a></div></li>
+							<li ><div class="header_top_box_right_div">我的订单<a class=".a"><i class="nav_right"></i></a></div>
+								<ul id="drop_down_list1">
+									<li>我的家</li>
+									<li>我的提问</li>
+									<li>我的评论</li>
+									<li>我的收藏</li>
+									<li>我的幸运星</li>
+								</ul>
+							</li>
+							<li><div class="header_top_box_right_div">客户服务<a class=".a"><i class="nav_right"></i></a></div>
+								<ul id="drop_down_list2">
+									<li>在线客服</li>
+									<li>客服中心</li>
+								</ul>
+							</li>
+							<li><div>商务合作</div></li>
+							<li><div class="header_top_box_right_div">网站导航<a class=".a"><i class="nav_right"></i></a></div>
+								<ul id="drop_down_list3">
+									<li>分类导航</li>
+									<li>品牌导航</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="header_center">
+				<div class="header_center_box">
+					<div class="header_center_box_logo">
+						<img src="{%static 'images/logo29new.png'%}"/>
+					</div>
+					
+				</div>
+			</div>
+			
+		</div>
+	
+		<div class="register_center">
+			<div class="register_cut">
+				<a class="register_cut_span1" href="register.html"><span class="registe"></span>注册</a>
+				<a class="register_cut_span2" href="onload.html"><span class="onload"></span>登录</a>
+			</div>
+			<div class="register_box">
+				<div class="register_box_left" >
+					<img src="{%static 'images/150211-340x300-2.jpg'%}" alt="" />
+				</div>
+				
+				<div class="register_box_right">
+					<form action="" method="">
+						<ul>
+							<li>
+								<label>账户：</label>
+								<div class="registe_from_div parentCls">
+									<input type="text" class="inputElem" placeholder="请填入邮箱或手机号码">
+							   	 <span class="registe_iphone"></span>
+								</div><br />
+								
+								<div id="error_iphone1">
+									<b></b><a>账户格式不正确</a>
+								</div>
+								<div id="error_iphone12">
+									<b></b>
+								</div>
+							</li>
+							
+							<li>
+								<label>密码：</label>
+								<div class="registe_from_div"><input type="password" id="" value=""  placeholder="请填入密码" /><span class="registe_parssword"></span></div><br />
+								<div id="error_iphone2">
+									<b></b><a>密码长度限制为6~20位字符</a>
+								</div>
+								<div id="error_iphone22">
+									<b></b><a></a>
+								</div>
+							</li>
+							<li>
+								<label>验证码：</label>
+								<div class="registe_yzm"><input type="text" id="" value="" /></div>
+								<span id="idcode">6q8f</span><a class="chang_idcode">看不清？<span>换一张</span></a>
+								<br />
+								<div id="error_iphone4">
+									<b></b><a>验证码输入错误，请重新输入！</a>
+								</div>
+								<div id="error_iphone42">
+									<b></b>
+								</div>
+							</li>
+							<li id="registe_protocol_li">
+								<label>&nbsp;</label>
+								<div class="registe_protocol"><input type="checkbox" checked="" id="checked"/><p>记住我（30天内免登陆）<span>忘记密码</span></p></div>
+								
+							</li>
+							<li>
+								<label>&nbsp;</label>
+								<div id="tijiao"></div>
+								<div id="error_iphone5">
+									<b></b><a>用户名或密码错误!</a>
+								</div>
+							</li>
+							<li>
+								<label>&nbsp;</label>
+								<div id="paner">
+									<p>使用合作网站账号登录母婴之家:</p>
+									<p><span id="paner_one"></span><span id="paner_two"></span><span id="paner_three"></span></p>
+								</div>
+							</li>
+						</ul>
+						
+					</form>
+				</div>
+				
+			</div>
+		</div>
+	<div class="footer">
+
+		
+		
+			<div class="footer_bottom" style="background: #fff;">
+				<div class="footer_bottom_box">
+					<ul class="footer_bottom_list">
+						<li class="hover-or">首页</li>
+						<li > | </li>
+						<li class="hover-or">公司简介</li>
+						<li> | </li>
+						<li class="hover-or">人才招聘</li>
+						<li> | </li>
+						<li class="hover-or">合作联系</li>
+						<li> | </li>
+						<li class="hover-or">企业理念</li>
+					</ul>
+					<p>Copyright©2003 - 2016 muyingzhijia.com All Rights Reserved&nbsp;&nbsp;沪ICP备09021709号</p>
+					<a >
+						<img src="{%static 'images/shanghai_industry.gif'%}" alt="" />
+					</a>
+					<p><span></span>沪公网安备&nbsp;&nbsp;31010402000751号</p>
+				</div>
+				
+			</div>
+		
+		</div>
+	</body>
+</html>

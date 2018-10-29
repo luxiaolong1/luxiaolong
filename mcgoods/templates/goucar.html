@@ -1,0 +1,276 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>母婴之家-【购物车】</title>
+		<link rel="stylesheet" type="text/css" href="{%static 'css/header.css'%}"/>
+		<link rel="stylesheet" type="text/css" href="{%static 'css/banner.css'%}"/>
+		<link rel="stylesheet" type="text/css" href="{%static 'css/gocar.css'%}"/>
+		<link rel="stylesheet" type="text/css" href="{%static 'css/footer.css'%}"/>
+		
+		<script src="{%static  'js/jquery-1.12.0.js'%}" type="text/javascript" charset="utf-8"></script>
+		
+		<script src="{%static  'js/jquery.cookie.js'%}" type="text/javascript" charset="utf-8"></script>
+		<script src="{%static  'js/daojishi.js'%}" type="text/javascript" charset="utf-8"></script>
+		<script src="{%static  'js/hover.js'%}" type="text/javascript" charset="utf-8"></script>
+		<script src="{%static  'js/mycar.js'%}" type="text/javascript" charset="utf-8"></script>
+		<script src="{%static  'js/footer.js'%}" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				
+				var nn = $.cookie("load") ? JSON.parse( $.cookie("load") ) : [];
+				if(nn.name){
+					$(".hellowword").html(nn.name + "&nbsp;&nbsp;欢迎来到母婴之家！");
+					$(".denglu").hide();
+					$(".zhuce").hide();
+//					$("<a class='orange' >[退出] </a>");
+					$(".header_top_box_right ul li").first().append($("<a class='orange exit' href='index.html' >[退出] </a>"));
+				
+					$(".exit").click(function(){
+						$.cookie("load", "", {expires:0, path:"/"}); //清空cookie
+					})
+				}
+				
+			})
+		</script>
+		
+		
+	</head>
+	<body>
+		
+		<div class="header">
+			<div class="header_top">
+				<div class="header_top_box">
+					<div class="header_top_box_left">
+						<ul>
+							<li class="goindex">母婴之家</li>
+							<li>母婴海淘</li>
+							<li class="header_top_box_left_last-child"><span class="iphone"></span>手机版</li>
+						</ul>
+					</div>
+					<div class="header_top_box_right">
+						<ul>
+							<li><span class="hellowword">&nbsp;欢迎来到母婴之家！</span>&nbsp;&nbsp;<div><a class="orange denglu" href="onload.html">[登录]</a>&nbsp;<a class="orange zhuce" href="register.html">[免费注册]</a></div></li>
+							<li ><div class="header_top_box_right_div">我的订单<a class=".a"><i class="nav_right"></i></a></div>
+								<ul id="drop_down_list1">
+									<li>我的家</li>
+									<li>我的提问</li>
+									<li>我的评论</li>
+									<li>我的收藏</li>
+									<li>我的幸运星</li>
+								</ul>
+							</li>
+							<li><div class="header_top_box_right_div">客户服务<a class=".a"><i class="nav_right"></i></a></div>
+								<ul id="drop_down_list2">
+									<li>在线客服</li>
+									<li>客服中心</li>
+								</ul>
+							</li>
+							<li><div>商务合作</div></li>
+							<li><div class="header_top_box_right_div">网站导航<a class=".a"><i class="nav_right"></i></a></div>
+								<ul id="drop_down_list3">
+									<li>分类导航</li>
+									<li>品牌导航</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="header_center">
+				<div class="header_center_box">
+					<div class="header_center_box_logo">
+						<img src="{%static 'images/logo29new.png'%}"/>
+					</div>
+					<div class="gocar_tu"></div>
+				</div>
+				
+			</div>
+			<div class="mycar">
+				<div class="mycar_tu">
+					<h2>我的购物车</h2>
+				</div>
+			</div>
+		</div>	
+				
+		<div class="emptycar">
+			<div class="emptycar_box">
+				<div class="emptycar_img"></div>
+				<div class="emptycar_text">
+					<h1>你的购物车还是空的</h1>
+					<span class="go_index"><a href="index.html">去逛逛</a></span>
+				</div>
+			</div>
+		</div>
+		
+		<div class="mygoodscar">
+			<div class="mygoodscar_top">
+				<div class="mygoodscar_top_left">
+					<span class="mygoodscar_top_left_title">母音之家商城</span>
+					<span class="mygoodscar_top_left_car">母音之家商城购物车</span>
+				</div>
+				<div class="mygoodscar_top_right">
+					<span class="danjia">单价 （元）</span>
+					<span class="hownum">数量 （件）</span>
+					<span class="numcount">小计 （元）</span>
+					<span class="delete">操作</span>
+				</div>
+			</div>
+			<!--<div class="delete_goods">
+				<p class="delete_goods_text">你确定删除该商品吗？</p>
+				<p class="delete_goods_button"><button class="button_one">确定</button><button class="button_two">取消</button></p>
+			</div>-->
+			
+			<!--通过cookie添加新节点-->
+			<!--<ul class="cargoods">
+				<li class="cargoods_type">
+					<a  class="cargoods_type_image">
+						<img src="images/small81.jpg" alt="" />
+					</a>
+					<span class="cargoods_type_title"><a>Minimoto小米米16C小脚丫长袖 后弧防湿和短袍3:6月/粉红</a></span>
+					<span class="cargoods_type_danjia">
+						<a class="newprice">￥<i>34.00</i></a>
+						<br />
+						<a class="oldprice">￥<i>68.00</i></a>
+					</span>
+					<span class="cargoods_type_hownum">
+						<div class="cargoods_type_hownum_box">
+							<i class="box_left">-</i>
+							<input type="text" id="num_mycar" value="1"  class="zhi"/>
+							<i class="box_right">+</i>
+						</div>
+					</span>
+					<span class="cargoods_type_numcount">
+						<a class="newprice">￥<i>33.00</i></a>
+					</span>
+					<span class="cargoods_type_delete">
+						<a id="id" >删除</a>
+					</span>
+				</li>
+				<li class="evet_info">
+					<span class="evet_info_active">
+						<a href="">满减：minimoto满99减10</a>
+					</span>
+					<span class="clear_box"> </span>
+					<span class="count_active">已购34元,还差65元就可以参加满99元减10元</span>
+					<span class="ball"></span>
+					<span class="ball_top"></span>
+				</li>
+			</ul>-->
+			
+			<div class="check_box">
+				<span class="check_box_text">已优惠</span>
+				<span class="check_box_n">小计</span>
+				<span class="check_box_nun">34.00</span>
+			</div>
+		</div>
+		
+		<div class="couno_are">
+			<div class="couno_are_top">
+				<span class="cup">
+					<input type="text" name="" id="" value="" placeholder="请输入优惠码" class="number2"/>
+					<a href="" class="yong">使用</a>
+				</span>
+				<span class="couno_are_top_text">已优惠</span>
+				<span class="allnum">￥00.0</span>
+			</div>
+		</div>
+		
+		<div class="clearBox">
+			<a  class="clearcar">清空购物车</a>
+			<div class="delete_goods" id="allclear">
+				<p class="delete_goods_text">你确定删除该商品吗？</p>
+				<p class="delete_goods_button"><button class="button_one">确定</button><button class="button_two">取消</button></p>
+			</div>
+			<div class="a-m">
+				<span class="a-m-a">
+					<a href="">确认订单</a>
+				</span>
+				<span class="a-m-menoy">167</span>
+				<span class="a-m-all">总共有<i>0</i>件商品，总计（不含运费）</span>
+			</div>
+			
+		</div>
+		
+
+		<div class="recommend">
+			<div class="recommend_top">
+				<ul>
+					<li class="recommend_top_li_select"><a href="">新品推荐</a></li>
+					<li><a href="">热销商品</a></li>
+				</ul>
+			</div>
+			<div class="recommend_box">
+				<span class="recommend_box_left"></span>
+				<span class="recommend_box_right"></span>
+				<div class="recommend_box_list">
+					<ul class="recomm_list">
+						<li>
+							<div class="recomm_list_box">
+								<div class="recomm_list_box_img">
+									<img src="{%static 'images/1ef5daaad33c7c2f_160X160.jpg'%}" alt="" />
+								</div>
+								<p class="recomm_list_box_name"><a href="">膳魔师高真空不锈钢两用瓶红色550ml（蓝盖）-带杯套</a></p>
+								<p class="recomm_list_box_price">368.00 <span class="old_price">468</span></p>
+								<a class="gotocar">加入购物车</a>
+							</div>
+						</li>
+					
+					
+						<li>
+							<div class="recomm_list_box">
+								<div class="recomm_list_box_img">
+									<img src="{%static 'images/157198_01_01.jpg'%}" alt="" />
+								</div>
+								<p class="recomm_list_box_name"><a href="">贝儿欣餐具套餐蓝色（围兜+吸盘+扭扭匙羹）</a></p>
+								<p class="recomm_list_box_price">368.00 <span class="old_price">63.2</span></p>
+								<a class="gotocar">加入购物车</a>
+							</div>
+						</li>
+					
+					
+						<li>
+							<div class="recomm_list_box">
+								<div class="recomm_list_box_img">
+									<img src="{%static 'images/155734_01_01.jpg'%}" alt="" />
+								</div>
+								<p class="recomm_list_box_name"><a href="">美国怡饭 Eat4Fun儿童不锈钢叉勺套装-海盗</a></p>
+								<p class="recomm_list_box_price">368.00 <span class="old_price">69.00</span></p>
+								<a class="gotocar">加入购物车</a>
+							</div>
+						</li>
+					
+				
+						<li>
+							<div class="recomm_list_box">
+								<div class="recomm_list_box_img">
+									<img src="{%static 'images/157293_01_01.jpg'%}" alt="" />
+								</div>
+								<p class="recomm_list_box_name"><a href="">利其尔电饭锅用煮粥器</a></p>
+								<p class="recomm_list_box_price">368.00 <span class="old_price">64</span></p>
+								<a class="gotocar">加入购物车</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<div class="footer">
+
+			
+			<div class="footer_bottom">
+				<div class="footer_bottom_box">
+					<p>Copyright©2003 - 2016 muyingzhijia.com All Rights Reserved&nbsp;&nbsp;沪ICP备09021709号</p>
+					<a >
+						<img src="{%static 'images/shanghai_industry.gif'%}" alt="" />
+					</a>
+					<p><span></span>沪公网安备&nbsp;&nbsp;31010402000751号</p>
+				</div>
+				
+			</div>
+		
+		</div>
+	</body>
+</html>

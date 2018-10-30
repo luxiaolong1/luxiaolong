@@ -44,7 +44,7 @@
 				<div class="header_top_box">
 					<div class="header_top_box_left">
 						<ul>
-							<li><a></a>母婴之家</li>
+                            <li><a href="{% url 'app:index' %}">母婴之家</a></li>
 							<li>母婴海淘</li>
 							<li class="header_top_box_left_last-child"><span class="iphone"></span>手机版</li>
 						</ul>
@@ -52,7 +52,7 @@
 					<div class="header_top_box_right">
 						<ul>
 							<!--<li><span>欢迎来到母婴之家！</span>&nbsp;&nbsp;<div><a class="orange" href="onload.html">[登录]</a>&nbsp;<a class="orange" href="register.html">[免费注册]</a></div></li>-->
-							<li><span class="hellowword">&nbsp;欢迎来到母婴之家！</span>&nbsp;&nbsp;<div><a class="orange denglu" href="onload.html">[登录]</a>&nbsp;<a class="orange zhuce" href="register.html">[免费注册]</a></div></li>
+							<li><span class="hellowword">&nbsp;欢迎来到母婴之家！</span>&nbsp;&nbsp;<div><a class="orange denglu" href="{% url 'app:onload' %}">[登录]</a>&nbsp;<a class="orange zhuce" href="{% url 'app:register' %}">[免费注册]</a></div></li>
 							<li ><div class="header_top_box_right_div">我的订单<a class=".a"><i class="nav_right"></i></a></div>
 								<ul id="drop_down_list1">
 									<li>我的家</li>
@@ -96,18 +96,21 @@
 					</div>
 					
 					<div class="goodsinfocar">
+
 						<div class="goodsinfocar_left">
-							<span class="thecar"></span>
-							<a>购物车</a>
+                            <a href="{% url 'app:goucar' %}">
+                                <span class="thecar"></span>
+                                购物车
+                            </a>
 						</div>
 						<div class="goodsinfocar_right">
 							<span id="countcarList">0</span>
 						</div>
 						<div id="willbuyList">
 							<div class="nogoods">
-								<p><span></span>你的购物车还是空的，快去挑选你喜爱的商品吧</p>
+                                <p><a href="{% url 'app:goucar' %}"><span></span>你的购物车还是空的，快去挑选你喜爱的商品吧</a></p>
 							</div>
-							
+
 						</div>
 					</div>
 				</div>
@@ -798,7 +801,7 @@
 						<div class="userbox_toux">
 							<img src="{%static 'images/userimg.jpg'%}" />
 						</div>
-						<p>你好，母婴之家用户，请<a class="orange">登录</a><a class="orange">注册</a></p>
+						<p>你好，母婴之家用户，请<a class="orange" href="{% url 'app:onload' %}">登录</a><a class="orange" href="{% url 'app:register' %}">注册</a></p>
 					</div>
 					<i class="jj"></i>
 				</div>

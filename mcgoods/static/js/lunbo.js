@@ -19,8 +19,8 @@ $(function(){
 
 		var width = 1090 * (data.length+2);
 //		console.log($('#lunbo_list1>li').eq(0).offset().left);
-		$('#lunbo_list1').width(width);
-		$('#lunbo_list1').height(350);
+		{{$('#lunbo_list1').width(width)}};
+		{{$('#lunbo_list1').height(350)}};
 //		console.log($("#lunbo_list1 li").width());
 
 		$('#lunbo').height(350);

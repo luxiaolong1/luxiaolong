@@ -9,7 +9,7 @@
 
 		<script type="text/javascript" src="{%static  'js/jquery-1.12.0.js'%}"></script>
 		<script type="text/javascript" src="{%static  'js/hover.js'%}"></script>
-		<script src="{%static  'js/register.js'%}" type="text/javascript" charset="utf-8"></script>
+{#		<script src="{%static  'js/register.js'%}" type="text/javascript" charset="utf-8"></script>#}
 		<script src="{%static  'js/footer.js'%}" type="text/javascript" charset="utf-8"></script>
 		<script src="{%static  'js/jquery.cookie.js'%}" type="text/javascript" charset="utf-8"></script>
 		
@@ -20,14 +20,14 @@
 				<div class="header_top_box">
 					<div class="header_top_box_left">
 						<ul>
-							<li id="goHome">母婴之家</li>
+                            <li id="goHome"><a href="{% url 'app:index' %}">母婴之家</a></li>
 							<li>母婴海淘</li>
 							<li class="header_top_box_left_last-child"><span class="iphone"></span>手机版</li>
 						</ul>
 					</div>
 					<div class="header_top_box_right">
 						<ul>
-							<li><span>欢迎来到母婴之家！</span>&nbsp;&nbsp;<div><a class="orange" href="onload.html">[登录]</a>&nbsp;<a class="orange" href="register.html">[免费注册]</a></div></li>
+							<li><span>欢迎来到母婴之家！</span>&nbsp;&nbsp;<div><a class="orange" href="{% url 'app:onload' %}">[登录]</a>&nbsp;<a class="orange" href="{% url 'app:register' %}">[免费注册]</a></div></li>
 							<li ><div class="header_top_box_right_div">我的订单<a class=".a"><i class="nav_right"></i></a></div>
 								<ul id="drop_down_list1">
 									<li>我的家</li>
@@ -67,8 +67,8 @@
 	
 		<div class="register_center">
 			<div class="register_cut">
-				<a class="register_cut_span1" href="register.html"><span class="registe"></span>注册</a>
-				<a class="register_cut_span2" href="onload.html"><span class="onload"></span>登录</a>
+				<a class="register_cut_span1" href="{% url 'app:register' %}"><span class="registe"></span>注册</a>
+				<a class="register_cut_span2" href="{% url 'app:onload' %}"><span class="onload"></span>登录</a>
 			</div>
 			<div class="register_box">
 				<div class="register_box_left">

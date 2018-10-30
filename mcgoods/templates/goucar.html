@@ -44,14 +44,14 @@
 				<div class="header_top_box">
 					<div class="header_top_box_left">
 						<ul>
-							<li class="goindex">母婴之家</li>
+                            <li class="goindex"><a href="{% url 'app:index' %}">母婴之家</a></li>
 							<li>母婴海淘</li>
 							<li class="header_top_box_left_last-child"><span class="iphone"></span>手机版</li>
 						</ul>
 					</div>
 					<div class="header_top_box_right">
 						<ul>
-							<li><span class="hellowword">&nbsp;欢迎来到母婴之家！</span>&nbsp;&nbsp;<div><a class="orange denglu" href="onload.html">[登录]</a>&nbsp;<a class="orange zhuce" href="register.html">[免费注册]</a></div></li>
+							<li><span class="hellowword">&nbsp;欢迎来到母婴之家！</span>&nbsp;&nbsp;<div><a class="orange denglu" href="{% url 'app:onload' %}">[登录]</a>&nbsp;<a class="orange zhuce" href="{% url 'app:register' %}">[免费注册]</a></div></li>
 							<li ><div class="header_top_box_right_div">我的订单<a class=".a"><i class="nav_right"></i></a></div>
 								<ul id="drop_down_list1">
 									<li>我的家</li>
@@ -99,7 +99,7 @@
 				<div class="emptycar_img"></div>
 				<div class="emptycar_text">
 					<h1>你的购物车还是空的</h1>
-					<span class="go_index"><a href="index.html">去逛逛</a></span>
+					<span class="go_index"><a href="{% url 'app:index' %}">去逛逛</a></span>
 				</div>
 			</div>
 		</div>

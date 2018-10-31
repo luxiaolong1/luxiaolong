@@ -8,4 +8,5 @@ urlpatterns = [
     url(r'^goucar/$', views.goucar, name='goucar'),
     url(r'^onload/$', views.onload, name='onload'),
     url(r'^register/$', views.register, name='register'),
+    url(r'^logout/$', views.logout, name='logout'),
 ]

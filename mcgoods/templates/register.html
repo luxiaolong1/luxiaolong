@@ -8,10 +8,10 @@
 		<link rel="stylesheet" type="text/css" href="{%static 'css/footer.css'%}"/>
 
 		<script type="text/javascript" src="{%static  'js/jquery-1.12.0.js'%}"></script>
-		<script type="text/javascript" src="{%static  'js/hover.js'%}"></script>
+{#		<script type="text/javascript" src="{%static  'js/hover.js'%}"></script>#}
 {#		<script src="{%static  'js/register.js'%}" type="text/javascript" charset="utf-8"></script>#}
 		<script src="{%static  'js/footer.js'%}" type="text/javascript" charset="utf-8"></script>
-		<script src="{%static  'js/jquery.cookie.js'%}" type="text/javascript" charset="utf-8"></script>
+{#		<script src="{%static  'js/jquery.cookie.js'%}" type="text/javascript" charset="utf-8"></script>#}
 		
 	</head>
 	<body>
@@ -27,7 +27,13 @@
 					</div>
 					<div class="header_top_box_right">
 						<ul>
-							<li><span>欢迎来到母婴之家！</span>&nbsp;&nbsp;<div><a class="orange" href="{% url 'app:onload' %}">[登录]</a>&nbsp;<a class="orange" href="{% url 'app:register' %}">[免费注册]</a></div></li>
+							<li>
+                                <span>欢迎来到母婴之家！</span>&nbsp;&nbsp;
+                                <div>
+                                    <a class="orange" href="{% url 'app:onload' %}">[登录]</a>&nbsp;
+                                    <a class="orange" href="{% url 'app:register' %}">[免费注册]</a>
+                                </div>
+                            </li>
 							<li ><div class="header_top_box_right_div">我的订单<a class=".a"><i class="nav_right"></i></a></div>
 								<ul id="drop_down_list1">
 									<li>我的家</li>
@@ -72,69 +78,70 @@
 			</div>
 			<div class="register_box">
 				<div class="register_box_left">
-					<form action="" method="">
+					<form action="/register/" method="post">
+                        {% csrf_token %}
 						<ul>
 							<li>
-								<label>手机号：</label>
-								<div class="registe_from_div"><input type="text" id="username" placeholder="请填入手机号"/><span class="registe_iphone"></span></div><br />
-								<div id="error_iphone1">
-									<b></b><a>手机格式不对，请重新输入</a>
-								</div>
-								<div id="error_iphone12">
-									<b></b>
-								</div>
+								<label>用户名：</label>
+								<div class="registe_from_div"><input type="text" name="username" placeholder="可以用邮箱或者手机号注册"/><span class="registe_parssword"></span></div><br />
+{#								<div id="error_iphone1">#}
+{#									<b></b><a>手机格式不对，请重新输入</a>#}
+{#								</div>#}
+{#								<div id="error_iphone12">#}
+{#									<b></b>#}
+{#								</div>#}
 							</li>
 							<li>
 								<label>请设置密码：</label>
-								<div class="registe_from_div"><input type="password" id="password" value="" placeholder="请填入密码"/><span class="registe_parssword"></span></div><br />
-								<div id="error_iphone2">
-									<b></b><a>密码长度限制为6~20位字符</a>
-								</div>
-								<div id="error_iphone22">
-									<b></b><a></a>
-								</div>
-								<div id="error_parssword">
-									<span class="error_parssword_one">弱</span>
-									<span class="error_parssword_two">中</span>
-									<span class="error_parssword_three">高</span>
-								</div>
+								<div class="registe_from_div"><input type="password" name="password" placeholder="请填入密码"/><span class="registe_parssword"></span></div><br />
+{#								<div id="error_iphone2">#}
+{#									<b></b><a>密码长度限制为6~20位字符</a>#}
+{#								</div>#}
+{#								<div id="error_iphone22">#}
+{#									<b></b><a></a>#}
+{#								</div>#}
+{#								<div id="error_parssword">#}
+{#									<span class="error_parssword_one">弱</span>#}
+{#									<span class="error_parssword_two">中</span>#}
+{#									<span class="error_parssword_three">高</span>#}
+{#								</div>#}
 							</li>
 							<li>
-								<label>请确认密码：</label>
-								<div class="registe_from_div"><input type="password" id="" value=""  placeholder="请再次填入密码" /><span class="registe_parssword"></span></div><br />
-								<div id="error_iphone3">
-									<b></b><a>两次密码不一致，请重新输入！</a>
-								</div>
-								<div id="error_iphoneE">
-									<b></b><a>重复密码不能为空，请重新输入</a>
-								</div>
-								<div id="error_iphone32">
-									<b></b>
-								</div>
+								<label>手机号：</label>
+								<div class="registe_from_div"><input type="text" name="tel" placeholder="请输入手机号" /><span class="registe_iphone"></span></div><br />
+{#								<div id="error_iphone3">#}
+{#									<b></b><a>两次密码不一致，请重新输入！</a>#}
+{#								</div>#}
+{#								<div id="error_iphoneE">#}
+{#									<b></b><a>重复密码不能为空，请重新输入</a>#}
+{#								</div>#}
+{#								<div id="error_iphone32">#}
+{#									<b></b>#}
+{#								</div>#}
 							</li>
 							<li>
-								<label>验证码：</label>
-								<div class="registe_yzm"><input type="text" id="" value="" /></div>
-								<span id="idcode">6q8f</span><a class="chang_idcode">看不清？<span>换一张</span></a>
-								<br />
-								<div id="error_iphone4">
-									<b></b><a>验证码输入错误，请重新输入！</a>
-								</div>
-								<div id="error_iphone42">
-									<b></b>
-								</div>
+{#								<label>验证码：</label>#}
+{#								<div class="registe_yzm"><input type="text" id="" value="" /></div>#}
+{#								<span id="idcode">6q8f</span><a class="chang_idcode">看不清？<span>换一张</span></a>#}
+{#								<br />#}
+{#								<div id="error_iphone4">#}
+{#									<b></b><a>验证码输入错误，请重新输入！</a>#}
+{#								</div>#}
+{#								<div id="error_iphone42">#}
+{#									<b></b>#}
+{#								</div>#}
 							</li>
-							<li>
-								<label>短信验证码：</label>
-								<div class="registe_iphoneyzm"><input type="text" id="" value="" /></div>
-								<input type="button"  id="gainword" value="" />
-								<div id="error_iphone6">
-									<b></b><a>该用户已经存在, 不能注册!</a>
-								</div>
-								<div id="error_iphone62">
-									<b></b><a>该用户可以注册</a>
-								</div>
-							</li>
+{#							<li>#}
+{#								<label>短信验证码：</label>#}
+{#								<div class="registe_iphoneyzm"><input type="text" id="" value="" /></div>#}
+{#								<input type="button"  id="gainword" value="" />#}
+{#								<div id="error_iphone6">#}
+{#									<b></b><a>该用户已经存在, 不能注册!</a>#}
+{#								</div>#}
+{#								<div id="error_iphone62">#}
+{#									<b></b><a>该用户可以注册</a>#}
+{#								</div>#}
+{#							</li>#}
 							<li id="registe_protocol_li">
 								<label>&nbsp;</label>
 								<div class="registe_protocol"><input type="checkbox" checked="checked" /><p>阅读并同意<span>“母婴之家网站用户协议”</span></p></div>
@@ -142,8 +149,8 @@
 							</li>
 							<li>
 								<label>&nbsp;</label>
-								<div id="tijiao1"></div>
-								
+								<div><input type="submit" value="注册"></div>
+
 							</li>
 							<li>
 								<label>&nbsp;</label>

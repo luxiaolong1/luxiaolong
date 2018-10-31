@@ -3,7 +3,7 @@ $(function(){
 	
 	
 	
-	$.get("json/lunbo.json",function(data){
+	$.get("/static/json/lunbo.json",function(data){
 		
 		for(var j=0 ; j<data.length;j++){
 			var img = data[j].img;

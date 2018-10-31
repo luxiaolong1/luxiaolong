@@ -21,7 +21,7 @@ def goodsinfo(request):
 def goucar(request):
     return render(request, 'goucar.html')
 
-# 注册
+# 登陆
 def onload(request):
     if request.method == 'GET':
         return render(request, 'onload.html')

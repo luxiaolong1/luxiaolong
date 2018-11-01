@@ -2,15 +2,21 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
 # Create your views here.
-from App.models import User
-
-
+from App.models import User, Lunbo
 
 
 def index(request):
     ## 状态保持 - 获取session
     username = request.session.get('username')
-    return render(request, 'index.html', context={'username':username})
+    # lunbotu轮播图数据
+    lunbos = Lunbo.objects.all()
+
+
+    data = {
+        'username': username,
+        'lunbos':lunbos,
+    }
+    return render(request, 'index.html', context=data)
 
 
 def goodsinfo(request):

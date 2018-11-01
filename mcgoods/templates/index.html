@@ -9,71 +9,63 @@
 		<link rel="stylesheet" type="text/css" href="{%static 'css/content.css'%}"/>
 		<link rel="stylesheet" type="text/css" href="{%static 'css/specialProduct.css'%}"/>
 		<link rel="stylesheet" type="text/css" href="{%static 'css/footer.css'%}"/>
+        <link rel="stylesheet" href="{% static 'css/swiper.css' %}">
 		
-		<script src="{%static  'js/jquery-1.12.0.js'%}" type="text/javascript" charset="utf-8"></script>
+
 		
-		<script src="{%static  'js/jquery.cookie.js'%}" type="text/javascript" charset="utf-8"></script>
-		<script src="{%static  'js/daojishi.js'%}" type="text/javascript" charset="utf-8"></script>
-		<script src="{%static  'js/lunbo.js'%}" type="text/javascript" charset="utf-8"></script>
-		<script src="{%static  'js/hover.js'%}" type="text/javascript" charset="utf-8"></script>
-		<script src="{%static  'js/footer.js'%}" type="text/javascript" charset="utf-8"></script>
-		<script src="{%static  'js/rushgoods.js'%}" type="text/javascript" charset="utf-8"></script>
-		<script src="{%static  'js/specialProduct.js'%}" type="text/javascript" charset="utf-8"></script>
-		<script src="{%static  'js/remembergoods.js'%}" type="text/javascript" charset="utf-8"></script>
-		
-		<script type="text/javascript">
-			$(function(){
-				$(window).scroll(function(e){
-					var scrollTop = $(window).scrollTop();
-//					console.log(scrollTop);
-					if(scrollTop >= 200){
-						$('#ad').fadeIn();
-					}else{
-						$('#ad').fadeOut();
-					};
-					
-					if(scrollTop >= 600){
-						$('.moveNav').fadeIn();
-					}else{
-						$('.moveNav').fadeOut();
-					};
-				})	
-				//获取购物车的数量：
-				var arr = $.cookie("cart") ? JSON.parse( $.cookie("cart") ) : [];
-//				console.log(arr.length);
-				var ll = 0;
-				if(arr.length != 0){
-					for(var r=0;r<arr.length;r++){
-						ll = ll+parseInt(arr[r].num) ;
-						
-						console.log("11");
-					}
-				}
-				$("#num").html("(" + ll + ")")
-					
-//					var rushLi = $(".rushGoods_list li");
-//		
-////					rushGoodsList.width(3000);
-//					
-//					var size = rushLi.length;
-//					console.log(size);
-				var nn = $.cookie("load") ? JSON.parse( $.cookie("load") ) : [];
-				if(nn.name){
-					$(".hellowword").html(nn.name + "&nbsp;&nbsp;欢迎来到母婴之家！");
-					$(".denglu").hide();
-					$(".zhuce").hide();
-//					$("<a class='orange' >[退出] </a>");
-					$(".header_top_box_right ul li").first().append($("<a class='orange exit' href='index.html' >[退出] </a>"));
-				
-					$(".exit").click(function(){
-						$.cookie("load", "", {expires:0, path:"/"}); //清空cookie
-					})
-				}
-				
-				
-				
-			})
-		</script>
+{#		<script type="text/javascript">#}
+{#			$(function(){#}
+{#				$(window).scroll(function(e){#}
+{#					var scrollTop = $(window).scrollTop();#}
+{#//					console.log(scrollTop);#}
+{#					if(scrollTop >= 200){#}
+{#						$('#ad').fadeIn();#}
+{#					}else{#}
+{#						$('#ad').fadeOut();#}
+{#					};#}
+{##}
+{#					if(scrollTop >= 600){#}
+{#						$('.moveNav').fadeIn();#}
+{#					}else{#}
+{#						$('.moveNav').fadeOut();#}
+{#					};#}
+{#				})	#}
+{#				//获取购物车的数量：#}
+{#				var arr = $.cookie("cart") ? JSON.parse( $.cookie("cart") ) : [];#}
+{#//				console.log(arr.length);#}
+{#				var ll = 0;#}
+{#				if(arr.length != 0){#}
+{#					for(var r=0;r<arr.length;r++){#}
+{#						ll = ll+parseInt(arr[r].num) ;#}
+{##}
+{#						console.log("11");#}
+{#					}#}
+{#				}#}
+{#				$("#num").html("(" + ll + ")")#}
+{##}
+{#//					var rushLi = $(".rushGoods_list li");#}
+{#//		#}
+{#////					rushGoodsList.width(3000);#}
+{#//					#}
+{#//					var size = rushLi.length;#}
+{#//					console.log(size);#}
+{#				var nn = $.cookie("load") ? JSON.parse( $.cookie("load") ) : [];#}
+{#				if(nn.name){#}
+{#					$(".hellowword").html(nn.name + "&nbsp;&nbsp;欢迎来到母婴之家！");#}
+{#					$(".denglu").hide();#}
+{#					$(".zhuce").hide();#}
+{#//					$("<a class='orange' >[退出] </a>");#}
+{#					$(".header_top_box_right ul li").first().append($("<a class='orange exit' href='index.html' >[退出] </a>"));#}
+{##}
+{#					$(".exit").click(function(){#}
+{#						$.cookie("load", "", {expires:0, path:"/"}); //清空cookie#}
+{#					})#}
+{#				}#}
+{##}
+{##}
+{##}
+{#			})#}
+{#		</script>#}
 	</head>
 	<body>
 		<div class="banner_top">
@@ -809,16 +801,26 @@
 			</div>
 			<div class="curtain"></div>
 		</div>
-		<div class="banner">
-				<div id="lunbo">
-					<ul id="lunbo_list1">
-						
-					</ul>
-					<ul id="lunbo_list2">
-						
-					</ul>
-				</div>
-		</div>
+        <div class="swiper-container" id="topSwiper">
+            <div class="swiper-wrapper">
+                {% for lunbo in lunbos %}
+                    <div class="swiper-slide">
+                        <img src="{% static lunbo.img %}" alt="">
+                    </div>
+                {% endfor %}
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+            <!-- Add Arrows -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+
+{#		<div class="banner">#}
+{##}
+{##}
+{#		</div>#}
+
 		<div id="ad">
 			<div id="ad_one">
 				<img src="{%static 'images/leftFixImg.png'%}" />
@@ -1241,4 +1243,15 @@
 		
 		</div>
 	</body>
+{#    <script src="{%static  'js/jquery-1.12.0.js'%}" type="text/javascript" charset="utf-8"></script>#}
+{#    <script src="{%static  'js/jquery.cookie.js'%}" type="text/javascript" charset="utf-8"></script>#}
+    <script src="{%static  'js/jquery.js'%}" type="text/javascript" charset="utf-8"></script>
+    <script src="{%static  'js/swiper.js'%}" type="text/javascript" charset="utf-8"></script>
+    <script src="{%static  'js/daojishi.js'%}" type="text/javascript" charset="utf-8"></script>
+    <script src="{%static  'js/hover.js'%}" type="text/javascript" charset="utf-8"></script>
+    <script src="{%static  'js/footer.js'%}" type="text/javascript" charset="utf-8"></script>
+    <script src="{%static  'js/rushgoods.js'%}" type="text/javascript" charset="utf-8"></script>
+    <script src="{%static  'js/specialProduct.js'%}" type="text/javascript" charset="utf-8"></script>
+{#    <script src="{%static  'js/remembergoods.js'%}" type="text/javascript" charset="utf-8"></script>#}
+    <script src="{%static  'js/lunbo.js'%}" type="text/javascript" charset="utf-8"></script>
 </html>

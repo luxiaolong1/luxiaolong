@@ -29,7 +29,7 @@
 {#					}else{#}
 {#						$('.moveNav').fadeOut();#}
 {#					};#}
-{#				})	#}
+{#				})#}
 {#				//获取购物车的数量：#}
 {#				var arr = $.cookie("cart") ? JSON.parse( $.cookie("cart") ) : [];#}
 {#//				console.log(arr.length);#}
@@ -44,9 +44,9 @@
 {#				$("#num").html("(" + ll + ")")#}
 {##}
 {#//					var rushLi = $(".rushGoods_list li");#}
-{#//		#}
+{#//#}
 {#////					rushGoodsList.width(3000);#}
-{#//					#}
+{#//#}
 {#//					var size = rushLi.length;#}
 {#//					console.log(size);#}
 {#				var nn = $.cookie("load") ? JSON.parse( $.cookie("load") ) : [];#}
@@ -1008,7 +1008,8 @@
 								</span>
 							</div>
 						</li>-->
-						
+
+
 					</ul>
 				</div>
 			</div>
@@ -1039,7 +1040,10 @@
 					<span class="part_title_center"></span>
 					<span class="part_title_right"></span>
 				</div>
-				
+
+
+
+
 			</div>
 			
 			<div id="part_two">
@@ -1048,32 +1052,38 @@
 					<span class="part_title_center2"></span>
 					<span class="part_title_right"></span>
 				</div>
-				<!--<div class="part_one_goods">
-					<div class="part_one_goods_img">
-						<img src="images/20160929093158_10_1182x590.jpg"/>
-						<img src="images/myzj_law2_small.png"  id="part_one_ad"/>
-					</div>
-					<div class="part_one_goods_state">
-						<h2><a>国庆放假大清仓</a></h2>
-						<div class="part_one_goods_state_explan"> 
-							<span class="part_one_goods_explan">
-								萌宝用品限量秒
-							</span>
-						</div>
-						<div class="part_one_goods_price">
-							<span id="part_one_goods_price_one">
-								<d>￥</d>
-								<d id = "price_one">96.09</d>
-								<d>起</d>
-							</span>
-							<span class="comeIn">
-								<a >点击进入</a>
-							</span>
-						</div>
-					</div>
-				</div>-->
-			</div>
-		
+
+
+
+{#                <div class="part_one_goods">#}
+{#					<div class="part_one_goods_img">#}
+{#						<img src="{% static 'images/20160929093158_10_1182x590.jpg' %}"/>#}
+{#						<img src="{% static 'images/myzj_law2_small.png'%}"  id="part_one_ad"/>#}
+{#					</div>#}
+{#                    <div class="part_one_goods_state">#}
+{#						<h2><a>国庆放假大清仓</a></h2>#}
+{#						<div class="part_one_goods_state_explan">#}
+{#							<span class="part_one_goods_explan">#}
+{#								萌宝用品限量秒#}
+{#							</span>#}
+{#						</div>#}
+{#						<div class="part_one_goods_price">#}
+{#							<span id="part_one_goods_price_one">#}
+{#								<d>￥</d>#}
+{#								<d id = "price_one">96.09</d>#}
+{#								<d>起</d>#}
+{#							</span>#}
+{#							<span class="comeIn">#}
+{#								<a >点击进入</a>#}
+{#							</span>#}
+{#						</div>#}
+{#					</div>#}
+{#				</div>#}
+
+
+
+
+            </div>
 			<div id="part_three">
 				<div class="part_one_title">
 					<span class="part_title_left"></span>
@@ -1255,3 +1265,7 @@
 {#    <script src="{%static  'js/remembergoods.js'%}" type="text/javascript" charset="utf-8"></script>#}
     <script src="{%static  'js/lunbo.js'%}" type="text/javascript" charset="utf-8"></script>
 </html>
+
+
+
+

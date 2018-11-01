@@ -11,6 +11,8 @@ def index(request):
     # lunbotu轮播图数据
     lunbos = Lunbo.objects.all()
 
+    # 每日抢购
+
 
     data = {
         'username': username,

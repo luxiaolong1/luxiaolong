@@ -927,45 +927,19 @@
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <table id="234" parent="7" name="App_lunbo">
-      <Collation>latin1_swedish_ci</Collation>
-    </table>
-    <table id="235" parent="7" name="App_special">
-      <Collation>latin1_swedish_ci</Collation>
-    </table>
-    <table id="236" parent="7" name="App_user">
-      <Collation>latin1_swedish_ci</Collation>
-    </table>
-    <table id="237" parent="7" name="auth_group">
-      <Collation>latin1_swedish_ci</Collation>
-    </table>
-    <table id="238" parent="7" name="auth_group_permissions">
-      <Collation>latin1_swedish_ci</Collation>
-    </table>
-    <table id="239" parent="7" name="auth_permission">
-      <Collation>latin1_swedish_ci</Collation>
-    </table>
-    <table id="240" parent="7" name="auth_user">
-      <Collation>latin1_swedish_ci</Collation>
-    </table>
-    <table id="241" parent="7" name="auth_user_groups">
-      <Collation>latin1_swedish_ci</Collation>
-    </table>
-    <table id="242" parent="7" name="auth_user_user_permissions">
-      <Collation>latin1_swedish_ci</Collation>
-    </table>
-    <table id="243" parent="7" name="django_admin_log">
-      <Collation>latin1_swedish_ci</Collation>
-    </table>
-    <table id="244" parent="7" name="django_content_type">
-      <Collation>latin1_swedish_ci</Collation>
-    </table>
-    <table id="245" parent="7" name="django_migrations">
-      <Collation>latin1_swedish_ci</Collation>
-    </table>
-    <table id="246" parent="7" name="django_session">
-      <Collation>latin1_swedish_ci</Collation>
-    </table>
+    <table id="234" parent="7" name="App_lunbo"/>
+    <table id="235" parent="7" name="App_special"/>
+    <table id="236" parent="7" name="App_user"/>
+    <table id="237" parent="7" name="auth_group"/>
+    <table id="238" parent="7" name="auth_group_permissions"/>
+    <table id="239" parent="7" name="auth_permission"/>
+    <table id="240" parent="7" name="auth_user"/>
+    <table id="241" parent="7" name="auth_user_groups"/>
+    <table id="242" parent="7" name="auth_user_user_permissions"/>
+    <table id="243" parent="7" name="django_admin_log"/>
+    <table id="244" parent="7" name="django_content_type"/>
+    <table id="245" parent="7" name="django_migrations"/>
+    <table id="246" parent="7" name="django_session"/>
     <column id="247" parent="234" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>

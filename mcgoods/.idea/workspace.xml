@@ -7,12 +7,15 @@
       <change beforePath="$PROJECT_DIR$/../b.sh" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../c.sh" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../d.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/737b4145-a2ee-4a20-8490-33728cfc6a3f.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/737b4145-a2ee-4a20-8490-33728cfc6a3f.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/737b4145-a2ee-4a20-8490-33728cfc6a3f.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/demon.py" beforeDir="false" afterPath="$PROJECT_DIR$/App/demon.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/App/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/App/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/migrations/0002_auto_20181030_1215.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/migrations/0003_lunbo.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/migrations/0004_special.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,7 +24,8 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/mcgoods$demon.coverage" NAME="demon Coverage Results" MODIFIED="1541078069616" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/App" />
+    <SUITE FILE_PATH="coverage/mcgoods$0004_special.coverage" NAME="0004_special Coverage Results" MODIFIED="1541079771533" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/App/migrations" />
+    <SUITE FILE_PATH="coverage/mcgoods$demon.coverage" NAME="demon Coverage Results" MODIFIED="1541081610529" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/App" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -50,13 +54,6 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="mcgoods: schema" type="c314c289:MysqlImplModel$Schema" />
       </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="mcgoods@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="mcgoods: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="App_special: table" type="98d5ac3d:MysqlImplModel$Table" />
-      </path>
     </expand>
     <select />
   </component>
@@ -67,17 +64,17 @@
     <session id="-454446763">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="11" />
+          <entry key="project.closed" value="13" />
           <entry key="project.open.time.15" value="1" />
-          <entry key="project.open.time.21" value="1" />
-          <entry key="project.open.time.22" value="3" />
-          <entry key="project.open.time.24" value="2" />
+          <entry key="project.open.time.21" value="2" />
+          <entry key="project.open.time.22" value="4" />
+          <entry key="project.open.time.24" value="3" />
           <entry key="project.open.time.26" value="1" />
           <entry key="project.open.time.29" value="1" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.31" value="1" />
           <entry key="project.open.time.33" value="1" />
-          <entry key="project.opened" value="12" />
+          <entry key="project.opened" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -86,57 +83,57 @@
           <entry key="css" value="4" />
           <entry key="html" value="1610" />
           <entry key="js" value="38" />
-          <entry key="py" value="1764" />
-          <entry key="py@mcgoods" value="15" />
-          <entry key="txt" value="7" />
+          <entry key="py" value="1773" />
+          <entry key="py@mcgoods" value="20" />
+          <entry key="txt" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="4" />
-          <entry key="CommandLine" value="15" />
+          <entry key="CommandLine" value="20" />
           <entry key="HTML" value="1610" />
           <entry key="JavaScript" value="38" />
-          <entry key="PLAIN_TEXT" value="7" />
-          <entry key="Python" value="1764" />
+          <entry key="PLAIN_TEXT" value="14" />
+          <entry key="Python" value="1773" />
           <entry key="Scratch" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="App_lunbo" value="14" />
-          <entry key="App_special" value="7" />
+          <entry key="App_lunbo" value="15" />
+          <entry key="App_special" value="9" />
           <entry key="css" value="6" />
           <entry key="django_migrations" value="1" />
           <entry key="html" value="14" />
           <entry key="jpg" value="1" />
           <entry key="js" value="16" />
-          <entry key="json" value="24" />
-          <entry key="py" value="25" />
-          <entry key="sql" value="2" />
+          <entry key="json" value="25" />
+          <entry key="py" value="31" />
+          <entry key="sql" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="6" />
-          <entry key="Database Element" value="22" />
+          <entry key="Database Element" value="25" />
           <entry key="HTML" value="14" />
           <entry key="Image" value="1" />
-          <entry key="JSON" value="24" />
+          <entry key="JSON" value="25" />
           <entry key="JavaScript" value="16" />
-          <entry key="Python" value="25" />
+          <entry key="Python" value="31" />
           <entry key="SQL" value="1" />
-          <entry key="Scratch" value="1" />
+          <entry key="Scratch" value="2" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21607">
+            <state relative-caret-position="285">
               <caret line="1271" selection-start-line="1271" selection-end-line="1271" />
             </state>
           </provider>
@@ -145,8 +142,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/App/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="14" selection-start-line="14" selection-end-line="14" />
+            <state relative-caret-position="1156">
+              <caret line="68" column="20" selection-start-line="68" selection-start-column="20" selection-end-line="68" selection-end-column="20" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
               </folding>
@@ -154,11 +151,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="das://737b4145-a2ee-4a20-8490-33728cfc6a3f/schema/mcgoods/table/App_special">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/App/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="34" selection-start-line="34" selection-end-line="34" />
             </state>
           </provider>
         </entry>
@@ -189,9 +186,9 @@
         <option value="$PROJECT_DIR$/templates/onload.html" />
         <option value="$PROJECT_DIR$/static/js/lunbo.js" />
         <option value="$PROJECT_DIR$/static/css/banner.css" />
-        <option value="$PROJECT_DIR$/App/views.py" />
         <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/App/models.py" />
+        <option value="$PROJECT_DIR$/App/views.py" />
         <option value="$PROJECT_DIR$/App/demon.py" />
       </list>
     </option>
@@ -234,6 +231,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -245,12 +243,6 @@
               <item name="mcgoods" type="b2602c69:ProjectViewProjectNode" />
               <item name="mcgoods" type="462c0819:PsiDirectoryNode" />
               <item name="App" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mcgoods" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mcgoods" type="462c0819:PsiDirectoryNode" />
-              <item name="App" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="mcgoods" type="b2602c69:ProjectViewProjectNode" />
@@ -272,7 +264,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -304,7 +295,29 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.demon">
+  <component name="RunManager" selected="Django server.mcgoods">
+    <configuration name="0004_special" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="mcgoods" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/App/migrations" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/App/migrations/0004_special.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="demon" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="mcgoods" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -354,10 +367,12 @@
     <list>
       <item itemvalue="Django server.mcgoods" />
       <item itemvalue="Python.demon" />
+      <item itemvalue="Python.0004_special" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.demon" />
+        <item itemvalue="Python.0004_special" />
       </list>
     </recent_temporary>
   </component>
@@ -387,12 +402,12 @@
     <frame x="67" y="25" width="1295" height="590" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12890312" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13530825" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49959967" weight="0.30394432" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49959967" weight="0.30349344" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -401,15 +416,15 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5004003" side_tool="true" weight="0.30567685" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.1812227" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.26637554" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32969433" />
       <window_info anchor="bottom" id="Database Console" order="13" weight="0.32751092" />
-      <window_info anchor="bottom" id="manage.py@mcgoods" order="14" weight="0.32946634" />
+      <window_info anchor="bottom" id="manage.py@mcgoods" order="14" weight="0.32751092" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="SciView" order="3" weight="0.3298639" />
-      <window_info active="true" anchor="right" id="Database" order="4" visible="true" weight="0.17854284" />
+      <window_info anchor="right" id="Database" order="4" weight="0.17854284" />
     </layout>
     <layout-to-restore>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17453963" />
@@ -523,13 +538,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/json/goodsinfo.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-986">
-          <caret line="86" column="13" selection-start-line="86" selection-start-column="9" selection-end-line="86" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.virtualenvs/python1809/lib/python3.6/site-packages/pymysql/err.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="167">
@@ -537,44 +545,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/App/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
-          <folding>
-            <marker date="1541075658403" expanded="true" signature="1031:1032" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://737b4145-a2ee-4a20-8490-33728cfc6a3f/schema/mcgoods/table/App_lunbo">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21607">
-          <caret line="1271" selection-start-line="1271" selection-end-line="1271" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://737b4145-a2ee-4a20-8490-33728cfc6a3f/schema/mcgoods/table/App_special.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="2" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/App/demon.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="19" lean-forward="true" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="das://737b4145-a2ee-4a20-8490-33728cfc6a3f/schema/mcgoods/table/App_lunbo" />
+    <entry file="das://737b4145-a2ee-4a20-8490-33728cfc6a3f/schema/mcgoods/table/App_special.sql" />
     <entry file="file://$PROJECT_DIR$/static/json/specialProduct.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -582,23 +554,67 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/App/migrations/0004_special.py">
+    <entry file="das://737b4145-a2ee-4a20-8490-33728cfc6a3f/schema/mcgoods/table/App_special" />
+    <entry file="file://$USER_HOME$/.virtualenvs/python1809/lib/python3.6/site-packages/django/conf/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/migrations/0004_special.py" />
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/43f08dfd-3566-4f06-9d3a-468b1bd2a5fa/console.sql">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="das://43f08dfd-3566-4f06-9d3a-468b1bd2a5fa/schema/mcgoods/table/App_special">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://43f08dfd-3566-4f06-9d3a-468b1bd2a5fa/schema/mcgoods/table/App_lunbo">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/json/goodsinfo.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/demon.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="17" column="17" lean-forward="true" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/App/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="1156">
+          <caret line="68" column="20" selection-start-line="68" selection-start-column="20" selection-end-line="68" selection-end-column="20" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="das://737b4145-a2ee-4a20-8490-33728cfc6a3f/schema/mcgoods/table/App_special">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="1271" selection-start-line="1271" selection-end-line="1271" />
         </state>
       </provider>
     </entry>

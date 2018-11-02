@@ -13,59 +13,59 @@
 		
 
 		
-{#		<script type="text/javascript">#}
-{#			$(function(){#}
-{#				$(window).scroll(function(e){#}
-{#					var scrollTop = $(window).scrollTop();#}
-{#//					console.log(scrollTop);#}
-{#					if(scrollTop >= 200){#}
-{#						$('#ad').fadeIn();#}
-{#					}else{#}
-{#						$('#ad').fadeOut();#}
-{#					};#}
-{##}
-{#					if(scrollTop >= 600){#}
-{#						$('.moveNav').fadeIn();#}
-{#					}else{#}
-{#						$('.moveNav').fadeOut();#}
-{#					};#}
-{#				})#}
-{#				//获取购物车的数量：#}
-{#				var arr = $.cookie("cart") ? JSON.parse( $.cookie("cart") ) : [];#}
-{#//				console.log(arr.length);#}
-{#				var ll = 0;#}
-{#				if(arr.length != 0){#}
-{#					for(var r=0;r<arr.length;r++){#}
-{#						ll = ll+parseInt(arr[r].num) ;#}
-{##}
-{#						console.log("11");#}
-{#					}#}
-{#				}#}
-{#				$("#num").html("(" + ll + ")")#}
-{##}
-{#//					var rushLi = $(".rushGoods_list li");#}
-{#//#}
-{#////					rushGoodsList.width(3000);#}
-{#//#}
-{#//					var size = rushLi.length;#}
-{#//					console.log(size);#}
-{#				var nn = $.cookie("load") ? JSON.parse( $.cookie("load") ) : [];#}
-{#				if(nn.name){#}
-{#					$(".hellowword").html(nn.name + "&nbsp;&nbsp;欢迎来到母婴之家！");#}
-{#					$(".denglu").hide();#}
-{#					$(".zhuce").hide();#}
-{#//					$("<a class='orange' >[退出] </a>");#}
-{#					$(".header_top_box_right ul li").first().append($("<a class='orange exit' href='index.html' >[退出] </a>"));#}
-{##}
-{#					$(".exit").click(function(){#}
-{#						$.cookie("load", "", {expires:0, path:"/"}); //清空cookie#}
-{#					})#}
-{#				}#}
-{##}
-{##}
-{##}
-{#			})#}
-{#		</script>#}
+		<script type="text/javascript">
+			$(function(){
+				$(window).scroll(function(e){
+					var scrollTop = $(window).scrollTop();
+//					console.log(scrollTop);
+					if(scrollTop >= 200){
+						$('#ad').fadeIn();
+					}else{
+						$('#ad').fadeOut();
+					};
+
+					if(scrollTop >= 600){
+						$('.moveNav').fadeIn();
+					}else{
+						$('.moveNav').fadeOut();
+					};
+				})
+				//获取购物车的数量：
+				var arr = $.cookie("cart") ? JSON.parse( $.cookie("cart") ) : [];
+//				console.log(arr.length);
+				var ll = 0;
+				if(arr.length != 0){
+					for(var r=0;r<arr.length;r++){
+						ll = ll+parseInt(arr[r].num) ;
+
+						console.log("11");
+					}
+				}
+				$("#num").html("(" + ll + ")")
+
+//					var rushLi = $(".rushGoods_list li");
+//
+////					rushGoodsList.width(3000);
+//
+//					var size = rushLi.length;
+//					console.log(size);
+				var nn = $.cookie("load") ? JSON.parse( $.cookie("load") ) : [];
+				if(nn.name){
+					$(".hellowword").html(nn.name + "&nbsp;&nbsp;欢迎来到母婴之家！");
+					$(".denglu").hide();
+					$(".zhuce").hide();
+//					$("<a class='orange' >[退出] </a>");
+					$(".header_top_box_right ul li").first().append($("<a class='orange exit' href='index.html' >[退出] </a>"));
+
+					$(".exit").click(function(){
+						$.cookie("load", "", {expires:0, path:"/"}); //清空cookie
+					})
+				}
+
+
+
+			})
+		</script>
 	</head>
 	<body>
 		<div class="banner_top">
@@ -1040,6 +1040,32 @@
 					<span class="part_title_center"></span>
 					<span class="part_title_right"></span>
 				</div>
+                {% for odds in oddsproduct %}
+                <div class="part_one_goods">
+                        <div class="part_one_goods_img">
+                            <img src="{% static odds.bg_img %}" alt="">
+                            <img src="{% static 'images/myzj_law2_small.png'%}"  id="part_one_ad"/>
+                        </div>
+                        <div class="part_one_goods_state">
+                            <h2><a href="#">{{ odds.htwo }}</a></h2>
+                            <div class="part_one_goods_state_explan">
+                                <span class="part_one_goods_explan">
+                                    {{ odds.spano }}
+                                </span>
+                            </div>
+                            <div class="part_one_goods_price">
+                                <span class="part_one_goods_price_one">
+                                    <d>￥</d>
+								    <d id = "price_one">{{ odds.menoy }}</d>
+								    <d>起</d>
+                                </span>
+                                <span class="comeIn">
+								    <a >点击进入</a>
+							    </span>
+                            </div>
+                        </div>
+                </div>
+                {% endfor %}
 
 
 
@@ -1052,6 +1078,32 @@
 					<span class="part_title_center2"></span>
 					<span class="part_title_right"></span>
 				</div>
+                {% for taday in tadayproduct %}
+                <div class="part_one_goods">
+                        <div class="part_one_goods_img">
+                            <img src="{% static taday.bg_img %}" alt="">
+                            <img src="{% static 'images/myzj_law2_small.png'%}"  id="part_one_ad"/>
+                        </div>
+                        <div class="part_one_goods_state">
+                            <h2><a href="#">{{ taday.htwo }}</a></h2>
+                            <div class="part_one_goods_state_explan">
+                                <span class="part_one_goods_explan">
+                                    {{ taday.spano }}
+                                </span>
+                            </div>
+                            <div class="part_one_goods_price">
+                                <span class="part_one_goods_price_one">
+                                    <d>￥</d>
+								    <d id = "price_one">{{ taday.menoy }}</d>
+								    <d>起</d>
+                                </span>
+                                <span class="comeIn">
+								    <a >点击进入</a>
+							    </span>
+                            </div>
+                        </div>
+                </div>
+                {% endfor %}
 
 
 

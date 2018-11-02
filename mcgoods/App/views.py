@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
 # Create your views here.
-from App.models import User, Lunbo
+from App.models import User, Lunbo, Special
 
 
 def index(request):
@@ -14,9 +14,18 @@ def index(request):
     # 每日抢购
 
 
+    # 特惠专场(6) 今日精选(3)
+    specialProduct = Special.objects.all()
+    oddsproduct = specialProduct[0:7]
+    tadayproduct = specialProduct[7:10]
+
+
+
     data = {
         'username': username,
         'lunbos':lunbos,
+        'oddsproduct':oddsproduct,
+        'tadayproduct':tadayproduct,
     }
     return render(request, 'index.html', context=data)
 

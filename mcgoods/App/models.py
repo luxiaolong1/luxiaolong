@@ -26,9 +26,12 @@ class Lunbo(models.Model):
 
 
 # 特惠专选 今日精选
+# 1	1	images/20160930104414_10_1182.jpg	周年庆奶粉	满888送周庆礼	95
+# 2	1	images/20160930102021_10_1182.jpg	周年庆辅食	美味满168减60	4
+
 class Special(models.Model):
-    part = models.IntegerField(max_length=10)
+    part = models.IntegerField()
     bg_img = models.CharField(max_length=100)
     htwo = models.CharField(max_length=100)
     spano = models.CharField(max_length=100)
-    menoy = models.IntegerField(max_length=10)
+    menoy = models.IntegerField()

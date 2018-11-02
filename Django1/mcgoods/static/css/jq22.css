@@ -1,0 +1,37 @@
+@charset "utf-8";
+/* jQuery插件库 www.jq22.com */
+* {
+	margin:0;
+	padding:0;
+}
+ul, li {
+	list-style:none;
+}
+.inputElem {
+	width:198px;
+	height:28px;
+	line-height:22px;
+	border:1px solid #ccc;
+	float: left;
+}
+.parentCls {
+	width:274px;
+	height:auto; margin:0 auto;
+}
+.parentCls ul{ background: #FFFFFF; }
+.auto-tip li { height: 22px; line-height: 22px; font-size: 12px; font-family: "微软雅黑";
+padding-left: 10px;; margin: 0 !important;}
+.auto-tip li.hoverBg {
+	background:#FF5C00;
+	cursor:pointer;
+}
+
+.auto-tip li span{
+	width: auto;
+}
+
+
+
+.hidden {
+	display:none;
+}

@@ -1,0 +1,199 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>母婴之家-【注册】</title>
+		<link rel="stylesheet" type="text/css" href="{%static 'css/registerheader.css'%}"/>
+		<link rel="stylesheet" type="text/css" href="{%static 'css/footer.css'%}"/>
+
+		<script type="text/javascript" src="{%static  'js/jquery-1.12.0.js'%}"></script>
+{#		<script type="text/javascript" src="{%static  'js/hover.js'%}"></script>#}
+{#		<script src="{%static  'js/register.js'%}" type="text/javascript" charset="utf-8"></script>#}
+		<script src="{%static  'js/footer.js'%}" type="text/javascript" charset="utf-8"></script>
+{#		<script src="{%static  'js/jquery.cookie.js'%}" type="text/javascript" charset="utf-8"></script>#}
+		
+	</head>
+	<body>
+		<div class="header">
+			<div class="header_top">
+				<div class="header_top_box">
+					<div class="header_top_box_left">
+						<ul>
+                            <li id="goHome"><a href="{% url 'app:index' %}">母婴之家</a></li>
+							<li>母婴海淘</li>
+							<li class="header_top_box_left_last-child"><span class="iphone"></span>手机版</li>
+						</ul>
+					</div>
+					<div class="header_top_box_right">
+						<ul>
+							<li>
+                                <span>欢迎来到母婴之家！</span>&nbsp;&nbsp;
+                                <div>
+                                    <a class="orange" href="{% url 'app:onload' %}">[登录]</a>&nbsp;
+                                    <a class="orange" href="{% url 'app:register' %}">[免费注册]</a>
+                                </div>
+                            </li>
+							<li ><div class="header_top_box_right_div">我的订单<a class=".a"><i class="nav_right"></i></a></div>
+								<ul id="drop_down_list1">
+									<li>我的家</li>
+									<li>我的提问</li>
+									<li>我的评论</li>
+									<li>我的收藏</li>
+									<li>我的幸运星</li>
+								</ul>
+							</li>
+							<li><div class="header_top_box_right_div">客户服务<a class=".a"><i class="nav_right"></i></a></div>
+								<ul id="drop_down_list2">
+									<li>在线客服</li>
+									<li>客服中心</li>
+								</ul>
+							</li>
+							<li><div>商务合作</div></li>
+							<li><div class="header_top_box_right_div">网站导航<a class=".a"><i class="nav_right"></i></a></div>
+								<ul id="drop_down_list3">
+									<li>分类导航</li>
+									<li>品牌导航</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="header_center">
+				<div class="header_center_box">
+					<div class="header_center_box_logo">
+						<img src="{%static 'images/logo29new.png'%}"/>
+					</div>
+					
+				</div>
+			</div>
+			
+		</div>
+	
+		<div class="register_center">
+			<div class="register_cut">
+				<a class="register_cut_span1" href="{% url 'app:register' %}"><span class="registe"></span>注册</a>
+				<a class="register_cut_span2" href="{% url 'app:onload' %}"><span class="onload"></span>登录</a>
+			</div>
+			<div class="register_box">
+				<div class="register_box_left">
+					<form action="/register/" method="post">
+                        {% csrf_token %}
+						<ul>
+							<li>
+								<label>用户名：</label>
+								<div class="registe_from_div"><input type="text" name="username" placeholder="可以用邮箱或者手机号注册"/><span class="registe_parssword"></span></div><br />
+{#								<div id="error_iphone1">#}
+{#									<b></b><a>手机格式不对，请重新输入</a>#}
+{#								</div>#}
+{#								<div id="error_iphone12">#}
+{#									<b></b>#}
+{#								</div>#}
+							</li>
+							<li>
+								<label>请设置密码：</label>
+								<div class="registe_from_div"><input type="password" name="password" placeholder="请填入密码"/><span class="registe_parssword"></span></div><br />
+{#								<div id="error_iphone2">#}
+{#									<b></b><a>密码长度限制为6~20位字符</a>#}
+{#								</div>#}
+{#								<div id="error_iphone22">#}
+{#									<b></b><a></a>#}
+{#								</div>#}
+{#								<div id="error_parssword">#}
+{#									<span class="error_parssword_one">弱</span>#}
+{#									<span class="error_parssword_two">中</span>#}
+{#									<span class="error_parssword_three">高</span>#}
+{#								</div>#}
+							</li>
+							<li>
+								<label>手机号：</label>
+								<div class="registe_from_div"><input type="text" name="tel" placeholder="请输入手机号" /><span class="registe_iphone"></span></div><br />
+{#								<div id="error_iphone3">#}
+{#									<b></b><a>两次密码不一致，请重新输入！</a>#}
+{#								</div>#}
+{#								<div id="error_iphoneE">#}
+{#									<b></b><a>重复密码不能为空，请重新输入</a>#}
+{#								</div>#}
+{#								<div id="error_iphone32">#}
+{#									<b></b>#}
+{#								</div>#}
+							</li>
+							<li>
+{#								<label>验证码：</label>#}
+{#								<div class="registe_yzm"><input type="text" id="" value="" /></div>#}
+{#								<span id="idcode">6q8f</span><a class="chang_idcode">看不清？<span>换一张</span></a>#}
+{#								<br />#}
+{#								<div id="error_iphone4">#}
+{#									<b></b><a>验证码输入错误，请重新输入！</a>#}
+{#								</div>#}
+{#								<div id="error_iphone42">#}
+{#									<b></b>#}
+{#								</div>#}
+							</li>
+{#							<li>#}
+{#								<label>短信验证码：</label>#}
+{#								<div class="registe_iphoneyzm"><input type="text" id="" value="" /></div>#}
+{#								<input type="button"  id="gainword" value="" />#}
+{#								<div id="error_iphone6">#}
+{#									<b></b><a>该用户已经存在, 不能注册!</a>#}
+{#								</div>#}
+{#								<div id="error_iphone62">#}
+{#									<b></b><a>该用户可以注册</a>#}
+{#								</div>#}
+{#							</li>#}
+							<li id="registe_protocol_li">
+								<label>&nbsp;</label>
+								<div class="registe_protocol"><input type="checkbox" checked="checked" /><p>阅读并同意<span>“母婴之家网站用户协议”</span></p></div>
+								
+							</li>
+							<li>
+								<label>&nbsp;</label>
+								<div><input type="submit" value="注册"></div>
+
+							</li>
+							<li>
+								<label>&nbsp;</label>
+								<div id="paner">
+									<p>使用合作网站账号登录母婴之家:</p>
+									<p><span id="paner_one"></span><span id="paner_two"></span><span id="paner_three"></span></p>
+								</div>
+							</li>
+						</ul>
+						
+					</form>
+				</div>
+				<div class="register_box_right" >
+					<img src="{%static 'images/20160323111355_10_300x300.jpg'%}" alt="" />
+				</div>
+			</div>
+		</div>
+	<div class="footer">
+
+		
+		
+			<div class="footer_bottom" style="background: #fff;">
+				<div class="footer_bottom_box">
+					<ul class="footer_bottom_list">
+						<li class="hover-or">首页</li>
+						<li > | </li>
+						<li class="hover-or">公司简介</li>
+						<li> | </li>
+						<li class="hover-or">人才招聘</li>
+						<li> | </li>
+						<li class="hover-or">合作联系</li>
+						<li> | </li>
+						<li class="hover-or">企业理念</li>
+					</ul>
+					<p>Copyright©2003 - 2016 muyingzhijia.com All Rights Reserved&nbsp;&nbsp;沪ICP备09021709号</p>
+					<a >
+						<img src="{%static 'images/shanghai_industry.gif'%}" alt="" />
+					</a>
+					<p><span></span>沪公网安备&nbsp;&nbsp;31010402000751号</p>
+				</div>
+				
+			</div>
+		
+		</div>
+	</body>
+</html>

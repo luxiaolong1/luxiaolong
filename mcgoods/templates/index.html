@@ -1,0 +1,1325 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>母婴之家-让宝宝过得更好</title>
+		<link rel="stylesheet" type="text/css" href="{%static 'css/header.css'%}"/>
+		<link rel="stylesheet" type="text/css" href="{%static 'css/banner.css'%}"/>
+		<link rel="stylesheet" type="text/css" href="{%static 'css/content.css'%}"/>
+		<link rel="stylesheet" type="text/css" href="{%static 'css/specialProduct.css'%}"/>
+		<link rel="stylesheet" type="text/css" href="{%static 'css/footer.css'%}"/>
+        <link rel="stylesheet" href="{% static 'css/swiper.css' %}">
+		
+
+		
+		<script type="text/javascript">
+			$(function(){
+				$(window).scroll(function(e){
+					var scrollTop = $(window).scrollTop();
+//					console.log(scrollTop);
+					if(scrollTop >= 200){
+						$('#ad').fadeIn();
+					}else{
+						$('#ad').fadeOut();
+					};
+
+					if(scrollTop >= 600){
+						$('.moveNav').fadeIn();
+					}else{
+						$('.moveNav').fadeOut();
+					};
+				})
+				//获取购物车的数量：
+				var arr = $.cookie("cart") ? JSON.parse( $.cookie("cart") ) : [];
+//				console.log(arr.length);
+				var ll = 0;
+				if(arr.length != 0){
+					for(var r=0;r<arr.length;r++){
+						ll = ll+parseInt(arr[r].num) ;
+
+						console.log("11");
+					}
+				}
+				$("#num").html("(" + ll + ")")
+
+//					var rushLi = $(".rushGoods_list li");
+//
+////					rushGoodsList.width(3000);
+//
+//					var size = rushLi.length;
+//					console.log(size);
+				var nn = $.cookie("load") ? JSON.parse( $.cookie("load") ) : [];
+				if(nn.name){
+					$(".hellowword").html(nn.name + "&nbsp;&nbsp;欢迎来到母婴之家！");
+					$(".denglu").hide();
+					$(".zhuce").hide();
+//					$("<a class='orange' >[退出] </a>");
+					$(".header_top_box_right ul li").first().append($("<a class='orange exit' href='index.html' >[退出] </a>"));
+
+					$(".exit").click(function(){
+						$.cookie("load", "", {expires:0, path:"/"}); //清空cookie
+					})
+				}
+
+
+
+			})
+		</script>
+	</head>
+	<body>
+		<div class="banner_top">
+			<a href="http://sale.muyingzhijia.com/act/688.html"><img src="{%static 'images/20160721152244_10_1920x100.jpg'%}"/></a>
+		</div>
+		<div class="header">
+			<div class="header_top">
+				<div class="header_top_box">
+					<div class="header_top_box_left">
+						<ul>
+							<li>母婴之家</li>
+							<li>母婴海淘</li>
+							<li class="header_top_box_left_last-child"><span class="iphone"></span>手机版</li>
+						</ul>
+					</div>
+					<div class="header_top_box_right">
+{#                        <span style="display: inline-block">&nbsp;欢迎来到母婴之家！</span>#}
+						<ul>
+							<li>
+                                <a>欢迎来到母婴之家！</a>
+                                <div>
+                                    {% if username %}
+                                        <p>用户: {{ username }}</p>
+                                        <a href="{% url 'app:logout' %}" style="color: orange">[退出]</a>
+                                    {% else %}
+                                        <a class="orange denglu" href="{% url 'app:onload' %}">[登陆]</a>
+                                    {% endif %}&nbsp;
+                                    <a class="orange zhuce" href="{% url 'app:register' %}">[免费注册]</a>
+                                </div>
+                            </li>
+                            <li><div class="header_top_box_right_div">我的订单<a class=".a"><i class="nav_right"></i></a></div>
+								<ul id="drop_down_list1">
+									<li>我的家</li>
+									<li>我的提问</li>
+									<li>我的评论</li>
+									<li>我的收藏</li>
+									<li>我的幸运星</li>
+								</ul>
+							</li>
+
+
+							<li><div class="header_top_box_right_div">客户服务<a class=".a"><i class="nav_right"></i></a></div>
+								<ul id="drop_down_list2">
+									<li>在线客服</li>
+									<li>客服中心</li>
+								</ul>
+							</li>
+							<li><div>商务合作</div></li>
+							<li><div class="header_top_box_right_div">网站导航<a class=".a"><i class="nav_right"></i></a></div>
+								<ul id="drop_down_list3">
+									<li>分类导航</li>
+									<li>品牌导航</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="header_center">
+				<div class="header_center_box">
+					<div class="header_center_box_logo">
+						<img src="{%static 'images/logo29new.png'%}"/>
+					</div>
+					<div class="header_center_box_resgin">
+						<a ><span class="header_center_box_resgin_span1"></span><p>全球精选正品</p></a>
+						<a ><span class="header_center_box_resgin_span2"></span><p>白领妈妈推荐</p></a>
+						<a ><span class="header_center_box_resgin_span3"></span><p>专注母婴13年</p></a>
+					</div>
+					<div class="header_center_box_search">
+						<div class="search">
+							<input type="text" name="" id="" value="" placeholder="搜索 母婴之家 商品/品牌"/>
+							<button class="but"></button>
+						</div>
+						<ul id="hot_search">
+							<li>热门搜索：</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="header_bottom">
+				<div class="header_bottom_box">
+					<a class="orange bold allgood">全部商品分类<i class="one"></i>
+						<ul id="allGoodstype">
+							<li><i class="ags_left"></i>妈妈专区<i class="ags_right"></i>
+								<div id="allGoodstype_type1">
+									<div id="allGoodstype_list">
+										<div id="allGoodstype_list_box">
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇装</p>
+											<ul>
+												<li>孕妇帽/产妇帽</li>
+												<li>孕妇鞋/袜</li>
+												<li>月子服/哺乳衣/居家服</li>
+												<li>上衣薄外套</li>
+												<li>裤子/打底裤</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+										</div>
+									</div>
+									<div id="allGoodstype_logo">
+										<img src="{%static 'images/739.jpg'%}" alt="" />
+										<img src="{%static 'images/1081.jpg'%}" alt="" />
+										<img src="{%static 'images/1102.jpg'%}" alt="" />
+										<img src="{%static 'images/257.jpg'%}" alt="" />
+										<img src="{%static 'images/514.jpg'%}" alt="" />
+										<img src="{%static 'images/28.jpg'%}" alt="" />
+										<img src="{%static 'images/67.jpg'%}" alt="" />
+										<img src="{%static 'images/614.jpg'%}" alt="" />
+										<img src="{%static 'images/614.jpg'%}" alt="" />
+										<img src="{%static 'images/600.jpg'%}" alt="" />
+										<img src="{%static 'images/188.jpg'%}" alt="" />
+										<img src="{%static 'images/1449.jpg'%}" alt="" />
+									</div>
+								</div>
+
+							</li>
+							<li><i class="ags_left"></i>哺乳喂养<i class="ags_right"></i>
+								<div id="allGoodstype_type1">
+									<div id="allGoodstype_list">
+										<div id="allGoodstype_list_box">
+											<p class="bold">奶瓶</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+										</div>
+									</div>
+									<div id="allGoodstype_logo">
+										<img src="{%static 'images/739.jpg'%}" alt="" />
+										<img src="{%static 'images/1081.jpg'%}" alt="" />
+										<img src="{%static 'images/1102.jpg'%}" alt="" />
+										<img src="{%static 'images/257.jpg'%}" alt="" />
+										<img src="{%static 'images/514.jpg'%}" alt="" />
+										<img src="{%static 'images/28.jpg'%}" alt="" />
+										<img src="{%static 'images/67.jpg'%}" alt="" />
+										<img src="{%static 'images/614.jpg'%}" alt="" />
+										<img src="{%static 'images/614.jpg'%}" alt="" />
+										<img src="{%static 'images/600.jpg'%}" alt="" />
+										<img src="{%static 'images/188.jpg'%}" alt="" />
+										<img src="{%static 'images/1449.jpg'%}" alt="" />
+									</div>
+								</div>
+							</li>
+							<li><i class="ags_left"></i>奶粉辅食<i class="ags_right"></i>
+								<div id="allGoodstype_type1">
+									<div id="allGoodstype_list">
+										<div id="allGoodstype_list_box">
+											<p class="bold">授权行货</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+										</div>
+									</div>
+									<div id="allGoodstype_logo">
+										<img src="{%static 'images/739.jpg'%}" alt="" />
+										<img src="{%static 'images/1081.jpg'%}" alt="" />
+										<img src="{%static 'images/1102.jpg'%}" alt="" />
+										<img src="{%static 'images/257.jpg'%}" alt="" />
+										<img src="{%static 'images/514.jpg'%}" alt="" />
+										<img src="{%static 'images/28.jpg'%}" alt="" />
+										<img src="{%static 'images/67.jpg'%}" alt="" />
+										<img src="{%static 'images/614.jpg'%}" alt="" />
+										<img src="{%static 'images/614.jpg'%}" alt="" />
+										<img src="{%static 'images/600.jpg'%}" alt="" />
+										<img src="{%static 'images/188.jpg'%}" alt="" />
+										<img src="{%static 'images/1449.jpg'%}" alt="" />
+									</div>
+								</div>
+							</li>
+							<li><i class="ags_left"></i>纸尿裤湿巾<i class="ags_right"></i>
+								<div id="allGoodstype_type1">
+									<div id="allGoodstype_list">
+										<div id="allGoodstype_list_box">
+											<p class="bold">纸尿裤</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+										</div>
+									</div>
+									<div id="allGoodstype_logo">
+										<img src="{%static 'images/739.jpg'%}" alt="" />
+										<img src="{%static 'images/1081.jpg'%}" alt="" />
+										<img src="{%static 'images/1102.jpg'%}" alt="" />
+										<img src="{%static 'images/257.jpg'%}" alt="" />
+										<img src="{%static 'images/514.jpg'%}" alt="" />
+										<img src="{%static 'images/28.jpg'%}" alt="" />
+										<img src="{%static 'images/67.jpg'%}" alt="" />
+										<img src="{%static 'images/614.jpg'%}" alt="" />
+										<img src="{%static 'images/614.jpg'%}" alt="" />
+										<img src="{%static 'images/600.jpg'%}" alt="" />
+										<img src="{%static 'images/188.jpg'%}" alt="" />
+										<img src="{%static 'images/1449.jpg'%}" alt="" />
+									</div>
+								</div>
+							</li>
+							<li><i class="ags_left"></i>洗护用品<i class="ags_right"></i>
+								<div id="allGoodstype_type1">
+									<div id="allGoodstype_list">
+										<div id="allGoodstype_list_box">
+											<p class="bold">宝宝洗浴</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+										</div>
+									</div>
+									<div id="allGoodstype_logo">
+										<img src="{%static 'images/739.jpg'%}" alt="" />
+										<img src="{%static 'images/1081.jpg'%}" alt="" />
+										<img src="{%static 'images/1102.jpg'%}" alt="" />
+										<img src="{%static 'images/257.jpg'%}" alt="" />
+										<img src="{%static 'images/514.jpg'%}" alt="" />
+										<img src="{%static 'images/28.jpg'%}" alt="" />
+										<img src="{%static 'images/67.jpg'%}" alt="" />
+										<img src="{%static 'images/614.jpg'%}" alt="" />
+										<img src="{%static 'images/614.jpg'%}" alt="" />
+										<img src="{%static 'images/600.jpg'%}" alt="" />
+										<img src="{%static 'images/188.jpg'%}" alt="" />
+										<img src="{%static 'images/1449.jpg'%}" alt="" />
+									</div>
+								</div>
+							</li>
+							<li><i class="ags_left"></i>宝宝服饰<i class="ags_right"></i>
+								<div id="allGoodstype_type1">
+									<div id="allGoodstype_list">
+										<div id="allGoodstype_list_box">
+											<p class="bold">宝宝内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+										</div>
+									</div>
+									<div id="allGoodstype_logo">
+										<img src="{%static 'images/739.jpg'%}" alt="" />
+										<img src="{%static 'images/1081.jpg'%}" alt="" />
+										<img src="{%static 'images/1102.jpg'%}" alt="" />
+										<img src="{%static 'images/257.jpg'%}" alt="" />
+										<img src="{%static 'images/514.jpg'%}" alt="" />
+										<img src="{%static 'images/28.jpg'%}" alt="" />
+										<img src="{%static 'images/67.jpg'%}" alt="" />
+										<img src="{%static 'images/614.jpg'%}" alt="" />
+										<img src="{%static 'images/614.jpg'%}" alt="" />
+										<img src="{%static 'images/600.jpg'%}" alt="" />
+										<img src="{%static 'images/188.jpg'%}" alt="" />
+										<img src="{%static 'images/1449.jpg'%}" alt="" />
+									</div>
+								</div>
+							</li>
+							<li><i class="ags_left"></i>童车座椅<i class="ags_right"></i>
+								<div id="allGoodstype_type1">
+									<div id="allGoodstype_list">
+										<div id="allGoodstype_list_box">
+											<p class="bold">婴儿推车</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+										</div>
+									</div>
+									<div id="allGoodstype_logo">
+										<img src="{%static 'images/739.jpg'%}" alt="" />
+										<img src="{%static 'images/1081.jpg'%}" alt="" />
+										<img src="{%static 'images/1102.jpg'%}" alt="" />
+										<img src="{%static 'images/257.jpg'%}" alt="" />
+										<img src="{%static 'images/514.jpg'%}" alt="" />
+										<img src="{%static 'images/28.jpg'%}" alt="" />
+										<img src="{%static 'images/67.jpg'%}" alt="" />
+										<img src="{%static 'images/614.jpg'%}" alt="" />
+										<img src="{%static 'images/614.jpg'%}" alt="" />
+										<img src="{%static 'images/600.jpg'%}" alt="" />
+										<img src="{%static 'images/188.jpg'%}" alt="" />
+										<img src="{%static 'images/1449.jpg'%}" alt="" />
+									</div>
+								</div>
+							</li>
+							<li><i class="ags_left"></i>玩具<i class="ags_right"></i>
+								<div id="allGoodstype_type1">
+									<div id="allGoodstype_list">
+										<div id="allGoodstype_list_box">
+											<p class="bold">感官发育</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+										</div>
+									</div>
+									<div id="allGoodstype_logo">
+										<img src="{%static 'images/739.jpg'%}" alt="" />
+										<img src="{%static 'images/1081.jpg'%}" alt="" />
+										<img src="{%static 'images/1102.jpg'%}" alt="" />
+										<img src="{%static 'images/257.jpg'%}" alt="" />
+										<img src="{%static 'images/514.jpg'%}" alt="" />
+										<img src="{%static 'images/28.jpg'%}" alt="" />
+										<img src="{%static 'images/67.jpg'%}" alt="" />
+										<img src="{%static 'images/614.jpg'%}" alt="" />
+										<img src="{%static 'images/614.jpg'%}" alt="" />
+										<img src="{%static 'images/600.jpg'%}" alt="" />
+										<img src="{%static 'images/188.jpg'%}" alt="" />
+										<img src="{%static 'images/1449.jpg'%}" alt="" />
+									</div>
+								</div>
+							</li>
+							<li><i class="ags_left"></i>床椅寝具<i class="ags_right"></i>
+								<div id="allGoodstype_type1">
+									<div id="allGoodstype_list">
+										<div id="allGoodstype_list_box">
+											<p class="bold">寝具</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+											<p class="bold">孕妇内衣</p>
+											<ul>
+												<li>哺乳文胸</li>
+												<li>内裤/生理裤/产检裤</li>
+												<li>托腹裤/带</li>
+											</ul>
+										</div>
+									</div>
+									<div id="allGoodstype_logo">
+										<img src="{%static 'images/739.jpg'%}" alt="" />
+										<img src="{%static 'images/1081.jpg'%}" alt="" />
+										<img src="{%static 'images/1102.jpg'%}" alt="" />
+										<img src="{%static 'images/257.jpg'%}" alt="" />
+										<img src="{%static 'images/514.jpg'%}" alt="" />
+										<img src="{%static 'images/28.jpg'%}" alt="" />
+										<img src="{%static 'images/67.jpg'%}" alt="" />
+										<img src="{%static 'images/614.jpg'%}" alt="" />
+										<img src="{%static 'images/614.jpg'%}" alt="" />
+										<img src="{%static 'images/600.jpg'%}" alt="" />
+										<img src="{%static 'images/188.jpg'%}" alt="" />
+										<img src="{%static 'images/1449.jpg'%}" alt="" />
+									</div>
+								</div>
+							</li>
+						</ul>
+					</a>					
+					<a class="orange">首页</a>
+					<a>幸运星期一</a>
+					<a class="header_bottom_box_a1">直邮专区
+						<ul class="header_bottom_box_ul">
+							<li>欧洲直邮</li>
+						</ul>
+					</a>
+					<a>品牌专区</a>
+					<a>会员俱乐部</a>
+					<span id="tip">
+						<span class="tip_tu"></span>
+						<a class="orange">谨防诈骗的安全提醒</a>
+					</span>
+				</div>
+			</div>
+			<div class="curtain"></div>
+		</div>
+        <div class="swiper-container" id="topSwiper">
+            <div class="swiper-wrapper">
+                {% for lunbo in lunbos %}
+                    <div class="swiper-slide">
+                        <img src="{% static lunbo.img %}" alt="">
+                    </div>
+                {% endfor %}
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+            <!-- Add Arrows -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+
+{#		<div class="banner">#}
+{##}
+{##}
+{#		</div>#}
+
+		<div id="ad">
+			<div id="ad_one">
+				<img src="{%static 'images/leftFixImg.png'%}" />
+			</div>
+			<span id="ad_close">×</span>
+			<div id="ad_two">
+				<img src="{%static 'images/20160722165218_10_dh.png'%}" />
+			</div>	
+			<span id="ad_ad">
+				<img src="{%static 'images/myzj_law2_small.png'%}"/>
+			</span>
+		</div>
+		<div class="right_nav">
+			
+			<div class="shopCar_box_list">
+				<div class="shopCar_box_list_top">
+					<h2>购物车</h2>
+					<span class="user_close"></span>
+				</div>
+				<div class="right_nav_line"></div>
+				<div class="shopCar_box_list_img">
+					<div class="shopCar_box_list_img1">
+						<img src="{%static 'images/cartdefault.jpg'%}" />
+					</div>
+					<p>你的购物车还是空的<br />去挑选喜爱的商品吧~</p>
+				</div>
+				<!--<div class="mylist">
+					<div class="mylist_img">
+						<img src="images/small11.jpg"/>
+					</div>
+					<div class="mylist_into">
+						<a href="" class="cart-level-name">良良16格彩麻棉隔尿垫(标准加大) 粉色81*60cm</a>
+						<div class="bb">
+							<span class="cart-level-price">￥63</span><em>*1</em>
+							<a href="" class="cart-level-del">删除</a>
+						</div>
+					</div>
+					
+				</div>-->
+			
+				<div class="right_nav_line linenone"></div>
+				<div class="shopCar_box_what">
+					<div class="shopCar_box_what_top">
+						<h2>你可能会喜欢</h2>
+					</div>
+					<div class="shopCar_box_maybelove"></div>
+				</div>
+			</div>
+			
+			
+			<div class="userlogin">
+				<span class="user-img"></span>
+				<div id="userbox" class="b">
+					<div class="userbox_box">
+						<span class="user_close">
+						</span>
+						<div class="userbox_toux">
+							<img src="{%static 'images/userimg.jpg'%}" />
+						</div>
+						<p>你好，母婴之家用户，请<a class="orange" href="{% url 'app:onload' %}">登录</a><a class="orange" href="{% url 'app:register' %}">注册</a></p>
+					</div>
+					<i class="jj"></i>
+				</div>
+			</div>
+			<div class="shopCar">
+				<a class="topline"></a>
+				<div class="shopCar_box">
+					<span class="shopCar_img">
+					</span>
+					
+					<p>购<br>物<br>车<br></p>
+					<br>
+					
+				</div>
+				<a class="orange" id="num">（0）</a>
+				<a class="topline"></a>
+			</div>
+			<div class="erweima">
+				<span class="erweima_img">
+					
+				</span>
+			</div>
+			<div class="collect">
+				<span class="collect_img">	
+				</span>
+				
+				<div id="userbox" class="a">
+					<div class="userbox_box">
+						<span class="user_close">
+						</span>
+						<div class="userbox_toux">
+							<img src="{%static 'images/userimg.jpg'%}" />
+						</div>
+						<p>你好，母婴之家用户，请<a class="orange">登录</a><a class="orange">注册</a></p>
+					</div>
+					<i class="jj"></i>
+				</div>
+				
+			</div>
+			<div class="service">
+				<span class="service_img">
+				</span>
+					<p>在线</p><p>客服</p>
+				<div class="c"><p>客服</p>
+					<i class="jj"></i>
+				</div>
+			</div>
+			
+		</div>
+		<div class="gotop">
+			<div class="gotop_box">
+				<span class="gotop_img">
+			</span>
+			<div class="d"><p>回到顶部</p>
+				<i class="jj"></i>
+			</div>
+			</div>
+			
+		</div>
+		<div class="moveNav">
+			<div class="moveNav_box">
+				<div class="moveNav_box_logo">
+					<img src="{%static 'images/fixLogo.png'%}"/>
+				</div>
+				<ul class="moveNav_box_list">
+					<li><a>首页</a></li>
+					<li><a>幸运星期一</a></li>
+					<li><a >直邮专区</a>
+					<div class="selling"><a>欧洲直邮</a></div>
+					</li>
+					<li><a >品牌专区</a></li>
+					<li><a>会员俱乐部</a></li>
+				</ul>
+				<div class="moveNav_search">
+					<input type="text" name="" id="" value="" placeholder="搜索 母婴之家 商品/品牌"/>
+					<button class="but"></button>
+				</div>
+			</div>
+		</div>
+		<div class="content">
+			<div class="everyDayRush">
+				<div class="everyDayRush_top">
+					<div class="everyDayRush_top_left">
+					</div>
+					<div class="everyDayRush_top_timer">
+						<span class="timer bold">还剩</span>
+						<span id="time_hour">
+							
+						</span>
+						<span class="time_f">
+							
+						</span>
+						<span id="time_min">
+							
+						</span>
+						<span class="time_f">
+							
+						</span>
+						<span id="time_second">
+							
+						</span>
+						<span class="timer bold">结束</span>
+					</div>
+					<div class="everyDayRush_top_right">
+						<a class="next1"></a>
+						<a class="next2"></a>
+					</div>
+				</div>
+				<div class="rushGoods">
+					<ul class="rushGoods_list">
+
+                        {% for dayshop in everydayshop %}
+						<li>
+							<div class="shadowbox"></div>
+							<div class="shadowbox_rush">
+								<p>已出售<span id="sallNum">{{ dayshop.sall }}</span>件</p>
+							</div>
+							<div class="rushGoods_list_img">
+								<img src="{% static dayshop.img %}"/>
+							</div>
+							<div class="rushGoods_list_state">
+								<span class="rushGoods_list_state_left">
+									<span style="font-size: 8px">{{ dayshop.name }}</span>
+								</span>
+								<span class="rushGoods_list_state_right">
+									￥{{ dayshop.menoy }}
+								</span>
+							</div>
+						</li>
+                        {% endfor %}
+
+					</ul>
+				</div>
+			</div>
+		
+			<div class="center_ad">
+				<div class="center_box">
+					<ul class="center_ad_list">
+						<li>
+							<img src="{%static 'images/20160817162639_10_qq.jpg'%}" alt="" />
+						</li>
+						<li class="center_ad_list_two">
+							<img src="{%static 'images/20160817162821_10_znk.jpg'%}"/>
+						</li>
+						<li>
+							<img src="{%static 'images/20160817162859_10_nf.jpg'%}" alt="" />
+						</li>
+					</ul>
+				</div>
+			
+			</div>
+		
+		</div>
+		
+		<div class="specialProduct">
+			<div id="part_one">
+				<div class="part_one_title">
+					<span class="part_title_left"></span>
+					<span class="part_title_center"></span>
+					<span class="part_title_right"></span>
+				</div>
+                {% for odds in oddsproduct %}
+                <div class="part_one_goods">
+                        <div class="part_one_goods_img">
+                            <img src="{% static odds.bg_img %}" alt="">
+                            <img src="{% static 'images/myzj_law2_small.png'%}"  id="part_one_ad"/>
+                        </div>
+                        <div class="part_one_goods_state">
+                            <h2><a href="#">{{ odds.htwo }}</a></h2>
+                            <div class="part_one_goods_state_explan">
+                                <span class="part_one_goods_explan">
+                                    {{ odds.spano }}
+                                </span>
+                            </div>
+                            <div class="part_one_goods_price">
+                                <span class="part_one_goods_price_one">
+                                    <d>￥</d>
+								    <d id = "price_one">{{ odds.menoy }}</d>
+								    <d>起</d>
+                                </span>
+                                <span class="comeIn">
+								    <a >点击进入</a>
+							    </span>
+                            </div>
+                        </div>
+                </div>
+                {% endfor %}
+
+
+
+
+			</div>
+			
+			<div id="part_two">
+				<div class="part_one_title">
+					<span class="part_title_left"></span>
+					<span class="part_title_center2"></span>
+					<span class="part_title_right"></span>
+				</div>
+                {% for taday in tadayproduct %}
+                <div class="part_one_goods">
+                        <div class="part_one_goods_img">
+                            <img src="{% static taday.bg_img %}" alt="">
+                            <img src="{% static 'images/myzj_law2_small.png'%}"  id="part_one_ad"/>
+                        </div>
+                        <div class="part_one_goods_state">
+                            <h2><a href="#">{{ taday.htwo }}</a></h2>
+                            <div class="part_one_goods_state_explan">
+                                <span class="part_one_goods_explan">
+                                    {{ taday.spano }}
+                                </span>
+                            </div>
+                            <div class="part_one_goods_price">
+                                <span class="part_one_goods_price_one">
+                                    <d>￥</d>
+								    <d id = "price_one">{{ taday.menoy }}</d>
+								    <d>起</d>
+                                </span>
+                                <span class="comeIn">
+								    <a >点击进入</a>
+							    </span>
+                            </div>
+                        </div>
+                </div>
+                {% endfor %}
+
+
+
+{#                <div class="part_one_goods">#}
+{#					<div class="part_one_goods_img">#}
+{#						<img src="{% static 'images/20160929093158_10_1182x590.jpg' %}"/>#}
+{#						<img src="{% static 'images/myzj_law2_small.png'%}"  id="part_one_ad"/>#}
+{#					</div>#}
+{#                    <div class="part_one_goods_state">#}
+{#						<h2><a>国庆放假大清仓</a></h2>#}
+{#						<div class="part_one_goods_state_explan">#}
+{#							<span class="part_one_goods_explan">#}
+{#								萌宝用品限量秒#}
+{#							</span>#}
+{#						</div>#}
+{#						<div class="part_one_goods_price">#}
+{#							<span id="part_one_goods_price_one">#}
+{#								<d>￥</d>#}
+{#								<d id = "price_one">96.09</d>#}
+{#								<d>起</d>#}
+{#							</span>#}
+{#							<span class="comeIn">#}
+{#								<a >点击进入</a>#}
+{#							</span>#}
+{#						</div>#}
+{#					</div>#}
+{#				</div>#}
+
+
+
+
+            </div>
+			<div id="part_three">
+				<div class="part_one_title">
+					<span class="part_title_left"></span>
+					<span class="part_title_center3"></span>
+					<span class="part_title_right"></span>
+				</div>
+				<div class="brand">
+					<div class="brand_left">
+						<div class="brand_left_one">
+							<img src="{%static 'images/20160704125336_10_20160328110347_10_leftdown-1.jpg'%}"/>
+						</div>
+						<div class="brand_left_two">
+							<img src="{%static 'images/20160704125251_10_20160531173724_10_20150701102116_1619_370x160-1.jpg'%}"/>
+						</div>
+					</div>
+					<div class="brand_right">
+						<a><img src="{%static 'images/1388.jpg'%}"></a>
+						<a><img src="{%static 'images/15.jpg'%}"></a>
+						<a><img src="{%static 'images/19.jpg'%}"></a>
+						<a><img src="{%static 'images/28.jpg'%}"></a>
+						<a><img src="{%static 'images/30.jpg'%}"></a>
+						<a><img src="{%static 'images/61.jpg'%}"></a>
+						<a><img src="{%static 'images/63.jpg'%}"></a>
+						<a><img src="{%static 'images/67.jpg'%}"></a>
+						<a><img src="{%static 'images/85.jpg'%}"></a>
+						<a><img src="{%static 'images/96.jpg'%}"></a>
+						<a><img src="{%static 'images/101.jpg'%}"></a>
+						<a><img src="{%static 'images/113.jpg'%}"></a>
+						<a><img src="{%static 'images/126.jpg'%}"></a>
+						<a><img src="{%static 'images/131.jpg'%}"></a>
+						<a><img src="{%static 'images/136.jpg'%}"></a>
+						<a><img src="{%static 'images/144.jpg'%}"></a>
+					</div>
+				</div>
+			</div>
+		
+		</div>
+	
+		<div class="footer">
+			<div class="footer_one">
+				<div class="footer_one_box">
+					<ul class="footer_one_box_list">
+						<li>
+							<div class="footer_one_box_list_litop">
+								<span></span><h2>品质</h2>
+							</div>
+							<div class="footer_one_box_list_libottom">
+								<a>全球化采购，正品保证</a>
+							</div>
+						</li>
+						<li>
+							<div class="footer_one_box_list_litop  litop2">
+								<span></span><h2>便捷</h2>
+							</div>
+							<div class="footer_one_box_list_libottom">
+								<a>全球化采购，正品保证</a>
+							</div>
+						</li>
+						<li>
+							<div class="footer_one_box_list_litop litop3">
+								<span></span><h2>专业</h2>
+							</div>
+							<div class="footer_one_box_list_libottom">
+								<a>全球化采购，正品保证</a>
+							</div>
+						</li>
+						<li>
+							<div class="footer_one_box_list_litop litop4">
+								<span></span><h2>贴心</h2>
+							</div>
+							<div class="footer_one_box_list_libottom">
+								<a>全球化采购，正品保证</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		
+			<div class="footer_two">
+				<div class="footer_two_box">
+					<ul class="footer_two_box_list1">
+						<li>
+							<ul class="footer_two_box_list2">
+								<li><i></i>关于我们</li>
+								<li>企业理念</li>
+								<li>网站合作</li>
+								<li>人才招聘</li>
+								<li>关于我们</li>
+							</ul>
+						</li>
+						<li>
+							<ul class="footer_two_box_list2">
+								<li><i></i>关于我们</li>
+								<li>企业理念</li>
+								<li>网站合作</li>
+								<li>人才招聘</li>
+								<li>关于我们</li>
+							</ul>
+						</li>
+						<li>
+							<ul class="footer_two_box_list2">
+								<li><i></i>关于我们</li>
+								<li>企业理念</li>
+								<li>网站合作</li>
+								<li>人才招聘</li>
+								<li>关于我们</li>
+							</ul>
+						</li>
+						<li>
+							<ul class="footer_two_box_list2">
+								<li><i></i>关于我们</li>
+								<li>企业理念</li>
+								<li>网站合作</li>
+								<li>人才招聘</li>
+								<li>关于我们</li>
+							</ul>
+						</li>
+						<li>
+							<ul class="footer_two_box_list2">
+								<li><i></i>关于我们</li>
+								<li>企业理念</li>
+								<li>网站合作</li>
+								<li>人才招聘</li>
+								<li>关于我们</li>
+							</ul>
+						</li>
+						<li>
+							<ul class="footer_two_box_list2">
+								<li><i></i>关于我们</li>
+								<li>企业理念</li>
+								<li>网站合作</li>
+								<li>人才招聘</li>
+								<li>关于我们</li>
+							</ul>
+						</li>
+					</ul>
+					<div class="weixin">
+						<div class="weixin_logo">
+							<img src="{%static 'images/weixin_code.jpg'%}"/>
+						</div>
+						<div><span class="weixin_logo_1"></span><span class="weixin_explan">扫一扫加微信</span></div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="footer_bottom">
+				<div class="footer_bottom_box">
+					<ul class="footer_bottom_list">
+						<li class="hover-or">首页</li>
+						<li > | </li>
+						<li class="hover-or">公司简介</li>
+						<li> | </li>
+						<li class="hover-or">人才招聘</li>
+						<li> | </li>
+						<li class="hover-or">合作联系</li>
+						<li> | </li>
+						<li class="hover-or">企业理念</li>
+					</ul>
+					<p>Copyright©2003 - 2016 muyingzhijia.com All Rights Reserved&nbsp;&nbsp;沪ICP备09021709号</p>
+					<a >
+						<img src="{%static 'images/shanghai_industry.gif'%}" alt="" />
+					</a>
+					<p><span></span>沪公网安备&nbsp;&nbsp;31010402000751号</p>
+				</div>
+				
+			</div>
+		
+		</div>
+	</body>
+{#    <script src="{%static  'js/jquery-1.12.0.js'%}" type="text/javascript" charset="utf-8"></script>#}
+    <script src="{%static  'js/jquery.js'%}" type="text/javascript" charset="utf-8"></script>
+    <script src="{%static  'js/jquery.cookie.js'%}" type="text/javascript" charset="utf-8"></script>
+    <script src="{%static  'js/swiper.js'%}" type="text/javascript" charset="utf-8"></script>
+    <script src="{%static  'js/daojishi.js'%}" type="text/javascript" charset="utf-8"></script>
+{#    <script src="{%static  'js/hover.js'%}" type="text/javascript" charset="utf-8"></script>#}
+    <script src="{%static  'js/footer.js'%}" type="text/javascript" charset="utf-8"></script>
+    <script src="{%static  'js/rushgoods.js'%}" type="text/javascript" charset="utf-8"></script>
+    <script src="{%static  'js/specialProduct.js'%}" type="text/javascript" charset="utf-8"></script>
+{#    <script src="{%static  'js/remembergoods.js'%}" type="text/javascript" charset="utf-8"></script>#}
+    <script src="{%static  'js/lunbo.js'%}" type="text/javascript" charset="utf-8"></script>
+</html>
+
+
+
+

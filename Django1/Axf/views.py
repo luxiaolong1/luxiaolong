@@ -1,20 +1,21 @@
 import hashlib
 import os
+import random
 import uuid
 
-from django.http import JsonResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
 
 # Create your views here.
-from Axf.models import Wheel, Nav, Mustbuy, Shop, MainShow, Foodtypes, Goods, User, Cart
 from Django1 import settings
+from Axf.models import Wheel, Nav, Mustbuy, Shop, MainShow, Foodtypes, Goods, User, Cart
 
 
 def home(request):  # 首页
     # 轮播图数据
     wheels = Wheel.objects.all()
 
-    #  导航数据
+    # 导航数据
     navs = Nav.objects.all()
 
     # 每日必购
@@ -31,23 +32,22 @@ def home(request):  # 首页
     mainshows = MainShow.objects.all()
 
     data = {
-        'title':'首页',
         'wheels':wheels,
         'navs':navs,
-        'mustbuys':mustbuys,
+        'mustbuys': mustbuys,
         'shophead':shophead,
         'shoptab':shoptab,
         'shopclass':shopclass,
         'shopcommend':shopcommend,
-        'mainshows':mainshows,
+        'mainshows':mainshows
     }
-    return render(request, 'home/home.html', context=data)
 
+    return render(request, 'home/home.html', context=data)
 
 # categoryid 分类ID
 # childid 子类ID
 # sortid 排序ID
-def market(request, categoryid, childid, sortid): # 闪购超市
+def market(request, categoryid, childid, sortid):    # 闪购超市
     # 分类信息
     foodtypes = Foodtypes.objects.all()
 
@@ -63,41 +63,58 @@ def market(request, categoryid, childid, sortid): # 闪购超市
     for item in childtypenames.split('#'):
         arr = item.split(':')
         dir = {
-            'childname': arr[0],  # 子类名称
-            'childid': arr[1]  # 子类ID
+            'childname': arr[0],    # 子类名称
+            'childid': arr[1]       # 子类ID
         }
         childTypleList.append(dir)
 
     # 商品信息 - 根据分类id获取对应数据
     # goodsList = Goods.objects.all()[0:5]
-    if childid == '0':
+    if childid == '0':  # 全部分类
         goodsList = Goods.objects.filter(categoryid=categoryid)
-    else:
+    else:   # 分类 下 子类
         goodsList = Goods.objects.filter(categoryid=categoryid, childcid=childid)
 
-    # 排序
-    if sortid == '1':     # 销量排序
-        goodsList = goodsList.order_by('-productnum')
-    elif sortid == '2':   # 价格最低
-        goodsList = goodsList.order_by('price')
-    elif sortid == '3':   # 价格最高
-        goodsList = goodsList.order_by('-price')
 
+    # 排序
+    if sortid == '1':   # 销量排序
+        goodsList = goodsList.order_by('-productnum')
+    elif sortid == '2': # 价格最低
+        goodsList = goodsList.order_by('price')
+    elif sortid == '3': # 价格最高
+        goodsList = goodsList.order_by(('-price'))
+
+
+    # 购物车数据
+    token = request.session.get('token')
+    carts = []
+    if token:   # 根据用户，获取对应用户下所有购物车数据
+        user = User.objects.get(token=token)
+        carts = Cart.objects.filter(user=user)
 
     data = {
-        'foodtypes': foodtypes,  # 分类信息
-        'goodsList': goodsList,  # 商品信息
-        'childTypleList': childTypleList,  # 子类信息
-        'categoryid': categoryid,  # 分类ID
-        'childid': childid,  # 子类ID
+        'foodtypes':foodtypes,  # 分类信息
+        'goodsList':goodsList,  # 商品信息
+        'childTypleList': childTypleList,   # 子类信息
+        'categoryid':categoryid,    # 分类ID
+        'childid': childid,     # 子类ID
+        'carts':carts
     }
-
 
     return render(request, 'market/market.html', context=data)
 
 
 def cart(request):  # 购物车
-    return render(request, 'cart/cart.html')
+    token = request.session.get('token')
+    if token:   # 显示该用户下 购物车信息
+        user = User.objects.get(token=token)
+        carts = Cart.objects.filter(user=user).exclude(number=0)
+
+        return render(request, 'cart/cart.html', context={'carts':carts})
+    else:       # 跳转到登录页面
+        return redirect('axf:login')
+
+
 
 
 def mine(request):  # 我的
@@ -106,23 +123,25 @@ def mine(request):  # 我的
 
     responseData = {}
 
-    if token:  # 登录
+    if token:   # 登录
         user = User.objects.get(token=token)
         responseData['name'] = user.name
         responseData['rank'] = user.rank
         responseData['img'] = '/static/uploads/' + user.img
         responseData['isLogin'] = 1
-    else:  # 未登录
+    else:   # 未登录
         responseData['name'] = '未登录'
         responseData['img'] = '/static/uploads/axf.png'
 
     return render(request, 'mine/mine.html', context=responseData)
     # return HttpResponse(random.randrange(1,68))
 
+
 def genarate_password(param):
     sha = hashlib.sha256()
     sha.update(param.encode('utf-8'))
     return sha.hexdigest()
+
 
 def registe(request):
     if request.method == 'GET':
@@ -157,6 +176,7 @@ def registe(request):
             return redirect('axf:mine')
         # except:
         #     return HttpResponse('注册失败(该用户已被注册)')
+
 
 def checkaccount(request):
     account = request.GET.get('account')
@@ -200,6 +220,7 @@ def login(request):
                 return render(request, 'mine/login.html', context={'passwdErr': '密码错误!'})
         except:
             return render(request, 'mine/login.html', context={'acountErr':'账号不存在!'})
+
 
 def addcart(request):
     goodsid = request.GET.get('goodsid')
@@ -264,3 +285,35 @@ def subcart(request):
     }
 
     return JsonResponse(responseData)
+
+
+def changecartstatus(request):
+    cartid = request.GET.get('cartid')
+    cart = Cart.objects.get(pk=cartid)
+    cart.isselect = not cart.isselect
+    cart.save()
+
+    responseData = {
+        'msg': '选中状态改变',
+        'status': 1,
+        'isselect': cart.isselect
+    }
+
+    return JsonResponse(responseData)
+
+
+def changecartselect(request):
+    isselect = request.GET.get('isselect')
+    if isselect == 'true':
+        isselect = True
+    else:
+        isselect = False
+
+    token = request.session.get('token')
+    user = User.objects.get(token=token)
+    carts = Cart.objects.filter(user=user)
+    for cart in carts:
+        cart.isselect = isselect
+        cart.save()
+
+    return JsonResponse({'msg':'反选操作成功', 'status':1})

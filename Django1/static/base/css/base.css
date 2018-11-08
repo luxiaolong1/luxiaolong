@@ -10,9 +10,7 @@ body {
 	background: #eee;
 }
 
-a{
-	color: black;
-}
+
 
 header {
 	width: 100%;
@@ -132,4 +130,7 @@ a:hover {
 
 a:active {
 	text-decoration: none
+}
+a{
+	color: black;
 }

@@ -91,14 +91,11 @@
 
                                     {% if account %}
                                         <p>账号: {{ account }}</p>
-                                        <div class="userimg">
-                                           <img src="{% static img %}" alt="">
-                                        </div>
                                         <a href="{% url 'app:logout' %}" style="color: orange">[退出]</a>
                                     {% else %}
                                         <a class="orange denglu" href="{% url 'app:onload' %}">[登陆]</a>
+                                        <a class="orange zhuce" href="{% url 'app:register' %}">[免费注册]</a>
                                     {% endif %}&nbsp;
-                                    <a class="orange zhuce" href="{% url 'app:register' %}">[免费注册]</a>
                                 </div>
                             </li>
                             <li><div class="header_top_box_right_div">我的订单<a class=".a"><i class="nav_right"></i></a></div>

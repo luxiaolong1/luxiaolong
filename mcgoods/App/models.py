@@ -20,7 +20,7 @@ class Lunbo(models.Model):
     img = models.CharField(max_length=80)
 
 
-# 商品信息模型
+# 商品信息
 class Goodsinfo(models.Model):
     goodsid = models.CharField(max_length=100, unique=True)
     path1 = models.CharField(max_length=100)
@@ -52,5 +52,17 @@ class Special(models.Model):
     htwo = models.CharField(max_length=100)
     spano = models.CharField(max_length=100)
     menoy = models.IntegerField()
+
+
+# 购物车
+class Goucar(models.Model):
+    # 用户
+    user = models.ForeignKey(User)
+    # 商品
+    goodsinfo = models.ForeignKey(Goodsinfo)
+    # 商品数量(选择)
+    number = models.IntegerField()
+    # 是否选中
+    isselect = models.BooleanField(default=True)
 
 

@@ -7,13 +7,16 @@
 		<link rel="stylesheet" type="text/css" href="{%static 'css/onload.css'%}"/>
 		<link rel="stylesheet" type="text/css" href="{%static 'css/footer.css'%}"/>
 		<link href="{%static 'css/jq22.css'%}" type="text/css" rel="stylesheet" />
-		
-		<script type="text/javascript" src="{%static  'js/jquery-1.12.0.js'%}"></script>
+
+        <script src="{% static 'js/jquery.js' %}"></script>
+		<script src="{% static 'js/jquery.cookie.js'%}"></script>
+        <script src="{% static 'js/bootstrap.js' %}"></script>
+        <script src="{% static 'js/login.js' %}"></script>
 		<script type="text/javascript" src="{%static  'js/hover.js'%}"></script>
 {#		<script src="{%static  'js/onload.js'%}" type="text/javascript" charset="utf-8"></script>#}
 		<script src="{%static  'js/footer.js'%}" type="text/javascript" charset="utf-8"></script>
-		<script src="{%static  'js/emailAutoComplete.js'%}"></script>
-		<script src="{%static  'js/jquery.cookie.js'%}"></script>
+{#		<script src="{%static  'js/emailAutoComplete.js'%}"></script>#}
+
 		
 	</head>
 	<body>
@@ -82,52 +85,36 @@
                         {% csrf_token %}
 						<ul>
 							<li>
-								<label>账户：</label>
-								<div class="registe_from_div parentCls">
-									<input type="text" class="inputElem" placeholder="请填入账号" name="account">
-{#							   	 <span class="registe_iphone"></span>#}
-{#								</div><br />#}
-{#								#}
-{#								<div id="error_iphone1">#}
-{#									<b></b><a>账户格式不正确</a>#}
-{#								</div>#}
-{#								<div id="error_iphone12">#}
-{#									<b></b>#}
-								</div>
+								<label class="input-group-addon">账户：</label>
+                                <div class="form-group has-feedback" id="account" style="padding: 0">
+                                    <div class="registe_from_div">
+                                        <input type="text" class="form-control" class="inputElem" placeholder="请输入账号" name="account"  required="required">
+                                        <span class="registe_parssword" class="glyphicon form-control-feedback" aria-hidden="true" ></span>
+                                    </div><br>
+                                     <i>{{ acountErr }}</i>
+                                </div>
 							 </li>
 							
 							<li>
 								<label>密码：</label>
-								<div class="registe_from_div"><input type="password" name="password"  placeholder="请填入密码" /><span class="registe_parssword"></span></div><br />
-{#								<div id="error_iphone2">#}
-{#									<b></b><a>密码长度限制为6~20位字符</a>#}
-{#								</div>#}
-{#								<div id="error_iphone22">#}
-{#									<b></b><a></a>#}
-{#								</div>#}
+                                <div class="form-group" id="password" style="padding: 0">
+								    <div class="registe_from_div">
+                                        <input type="password" name="password"  placeholder="请输入密码" />
+                                        <span class="registe_parssword" class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                    </div><br>
+                                    <i>{{ passwdErr }}</i>
+                                </div>
+
 							</li>
-{#							<li>#}
-{#								<label>验证码：</label>#}
-{#								<div class="registe_yzm"><input type="text" id="" value="" /></div>#}
-{#								<span id="idcode">6q8f</span><a class="chang_idcode">看不清？<span>换一张</span></a>#}
-{#								<br />#}
-{#								<div id="error_iphone4">#}
-{#									<b></b><a>验证码输入错误，请重新输入！</a>#}
-{#								</div>#}
-{#								<div id="error_iphone42">#}
-{#									<b></b>#}
-{#								</div>#}
-{#							</li>#}
-{#							<li id="registe_protocol_li">#}
-{#								<label>&nbsp;</label>#}
-{#								<div class="registe_protocol"><input type="checkbox" checked="" id="checked"/><p>记住我（30天内免登陆）<span>忘记密码</span></p></div>#}
-{#								#}
-{#							</li>#}
+
+                            <li><span class="msg">{{ msg }}</span></li>
+
 							<li>
+
 								<label>&nbsp;</label>
 								<div ><input type="submit" value="立即登陆"></div>
 {#								<div id="error_iphone5">#}
-{#									<b></b><a>用户名或密码错误!</a>#}
+{#									{{ msg }}#}
 {#								</div>#}
 							</li>
 							<li>

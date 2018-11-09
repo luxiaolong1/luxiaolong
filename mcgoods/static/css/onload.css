@@ -300,6 +300,10 @@ body,html{
 	position: relative;
 }
 
+.register_box_right li .msg{
+	position: absolute;
+	right: 190px;
+}
 li label{
 	display: inline-block;
 	text-align: right;

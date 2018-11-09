@@ -82,24 +82,28 @@
 			<div class="register_box">
 				<div class="register_box_left">
 
-					<form action="/register/" method="post">
+					<form action="/register/" method="post" enctype="multipart/form-data">
                         {% csrf_token %}
 						<ul>
                             <li>
-								<label>账号：</label>
-								<div class="registe_from_div">
-                                    <input type="text" id="account" name="account" placeholder="请填入账号"/>
-                                    <span class="registe_parssword"></span>
-                                </div><br />
-								<i></i>
+								<label class="input-group-addon">账号：</label>
+                                 <div class="form-group has-feedback" id="account" style="padding: 0">
+                                    <div class="registe_from_div">
+                                        <input type="text" class="form-control" name="account" placeholder="请填入账号" required="required"/>
+                                        <span class="registe_parssword" class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                    </div>
+                                    <p></p>
+                                 </div>
 							</li>
 
                             <li>
-								<label>用户名：</label>
-								<div class="registe_from_div">
-                                    <input type="text" id="username" name="username" placeholder="请填入手机号"/>
-                                    <span class="registe_parssword"></span>
-                                </div><br />
+								<label class="input-group-addon">用户名：</label>
+                                <div class="form-group has-feedback" id="name" style="padding: 0">
+                                    <div class="registe_from_div">
+                                        <input type="text"  name="username" placeholder="请填入用户名" class="form-control" required="required"/>
+                                        <span class="registe_parssword" class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                    </div>
+                                </div>
 
                                 <div id="error_iphone1">
 									<b></b><a>用户名输入有误，请重新输入</a>
@@ -109,45 +113,35 @@
 								</div>
 							</li>
 							<li>
-								<label>手机号：</label>
-								<div class="registe_from_div">
-                                    <input type="text" id="tel" name="tel" placeholder="请填入手机号"/>
-                                    <span class="registe_iphone"></span></div><br />
-								<div id="error_iphone1">
-									<b></b><a>手机格式不对，请重新输入</a>
-								</div>
-								<div id="error_iphone12">
-									<b></b>
-								</div>
+								<label class="input-group-addon">手机号：</label>
+                                <div class="form-group has-feedback" id="phone" style="padding: 0">
+                                    <div class="registe_from_div">
+                                        <input type="text" class="form-control" name="tel" placeholder="请填入手机号" required="required"/>
+                                        <span class="registe_iphone" class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                    </div>
+                                    <p></p>
+                                 </div>
 							</li>
 
 							<li>
-								<label>请设置密码：</label>
-								<div class="registe_from_div">
-                                    <input type="password" id="password" name="password" placeholder="请填入密码"/>
-                                    <span class="registe_parssword"></span></div><br />
-								<div id="error_iphone2">
-									<b></b><a>密码长度限制为6~20位字符</a>
-								</div>
-								<div id="error_iphone22">
-									<b></b><a></a>
-								</div>
+                                <label class="input-group-addon">请设置密码：</label>
+                                <div class="form-group has-feedback" id="password" style="padding: 0">
+                                    <div class="registe_from_div">
+                                        <input type="password" class="form-control" name="password"  required="required" placeholder="请填入密码"/>
+                                        <span class="registe_parssword" class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                    </div>
+                                    <p></p>
+                                </div>
 							</li>
 							<li>
-								<label>请确认密码：</label>
-								<div class="registe_from_div">
-                                    <input type="password" id="passwd" name="passwd"  placeholder="请再次填入密码" />
-                                    <span class="registe_parssword"></span>
-                                </div><br />
-								<div id="error_iphone3">
-									<b></b><a>两次密码不一致，请重新输入！</a>
-								</div>
-								<div id="error_iphoneE">
-									<b></b><a>重复密码不能为空，请重新输入</a>
-								</div>
-								<div id="error_iphone32">
-									<b></b>
-								</div>
+								<label class="input-group-addon">请确认密码：</label>
+                                <div id="passwd" class="form-group has-feedback" style="padding: 0">
+                                    <div class="registe_from_div">
+                                        <input type="password" class="form-control" name="passwd"  required="required" placeholder="请再次填入密码" />
+                                        <span class="registe_parssword" class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                    </div>
+                                    <p></p>
+                                </div>
 							</li>
 
 

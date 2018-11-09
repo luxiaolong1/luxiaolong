@@ -13,59 +13,59 @@
 		
 
 		
-		<script type="text/javascript">
-			$(function(){
-				$(window).scroll(function(e){
-					var scrollTop = $(window).scrollTop();
-//					console.log(scrollTop);
-					if(scrollTop >= 200){
-						$('#ad').fadeIn();
-					}else{
-						$('#ad').fadeOut();
-					};
-
-					if(scrollTop >= 600){
-						$('.moveNav').fadeIn();
-					}else{
-						$('.moveNav').fadeOut();
-					};
-				})
-				//获取购物车的数量：
-				var arr = $.cookie("cart") ? JSON.parse( $.cookie("cart") ) : [];
-//				console.log(arr.length);
-				var ll = 0;
-				if(arr.length != 0){
-					for(var r=0;r<arr.length;r++){
-						ll = ll+parseInt(arr[r].num) ;
-
-						console.log("11");
-					}
-				}
-				$("#num").html("(" + ll + ")")
-
-//					var rushLi = $(".rushGoods_list li");
-//
-////					rushGoodsList.width(3000);
-//
-//					var size = rushLi.length;
-//					console.log(size);
-				var nn = $.cookie("load") ? JSON.parse( $.cookie("load") ) : [];
-				if(nn.name){
-					$(".hellowword").html(nn.name + "&nbsp;&nbsp;欢迎来到母婴之家！");
-					$(".denglu").hide();
-					$(".zhuce").hide();
-//					$("<a class='orange' >[退出] </a>");
-					$(".header_top_box_right ul li").first().append($("<a class='orange exit' href='index.html' >[退出] </a>"));
-
-					$(".exit").click(function(){
-						$.cookie("load", "", {expires:0, path:"/"}); //清空cookie
-					})
-				}
-
-
-
-			})
-		</script>
+{#		<script type="text/javascript">#}
+{#			$()(function(){#}
+{#				$(window).scroll(function(e){#}
+{#					var scrollTop = $(window).scrollTop();#}
+{#//					console.log(scrollTop);#}
+{#					if(scrollTop >= 200){#}
+{#						$('#ad').fadeIn();#}
+{#					}else{#}
+{#						$('#ad').fadeOut();#}
+{#					};#}
+{##}
+{#					if(scrollTop >= 600){#}
+{#						$('.moveNav').fadeIn();#}
+{#					}else{#}
+{#						$('.moveNav').fadeOut();#}
+{#					};#}
+{#				})#}
+{#				//获取购物车的数量：#}
+{#				var arr = $.cookie("cart") ? JSON.parse( $.cookie("cart") ) : [];#}
+{#//				console.log(arr.length);#}
+{#				var ll = 0;#}
+{#				if(arr.length != 0){#}
+{#					for(var r=0;r<arr.length;r++){#}
+{#						ll = ll+parseInt(arr[r].num) ;#}
+{##}
+{#						console.log("11");#}
+{#					}#}
+{#				}#}
+{#				$("#num").html("(" + ll + ")")#}
+{##}
+{#//					var rushLi = $(".rushGoods_list li");#}
+{#//#}
+{#////					rushGoodsList.width(3000);#}
+{#//#}
+{#//					var size = rushLi.length;#}
+{#//					console.log(size);#}
+{#				var nn = $.cookie("load") ? JSON.parse( $.cookie("load") ) : [];#}
+{#				if(nn.name){#}
+{#					$(".hellowword").html(nn.name + "&nbsp;&nbsp;欢迎来到母婴之家！");#}
+{#					$(".denglu").hide();#}
+{#					$(".zhuce").hide();#}
+{#//					$("<a class='orange' >[退出] </a>");#}
+{#					$(".header_top_box_right ul li").first().append($("<a class='orange exit' href='index.html' >[退出] </a>"));#}
+{##}
+{#					$(".exit").click(function(){#}
+{#						$.cookie("load", "", {expires:0, path:"/"}); //清空cookie#}
+{#					})#}
+{#				}#}
+{##}
+{##}
+{##}
+{#			})#}
+{#		</script>#}
 	</head>
 	<body>
 		<div class="banner_top">
@@ -86,9 +86,14 @@
 						<ul>
 							<li>
                                 <a>欢迎来到母婴之家！</a>
+
                                 <div>
-                                    {% if username %}
-                                        <p>用户: {{ username }}</p>
+
+                                    {% if account %}
+                                        <p>账号: {{ account }}</p>
+                                        <div class="userimg">
+                                           <img src="{% static img %}" alt="">
+                                        </div>
                                         <a href="{% url 'app:logout' %}" style="color: orange">[退出]</a>
                                     {% else %}
                                         <a class="orange denglu" href="{% url 'app:onload' %}">[登陆]</a>
@@ -109,7 +114,6 @@
 
 							<li><div class="header_top_box_right_div">客户服务<a class=".a"><i class="nav_right"></i></a></div>
 								<ul id="drop_down_list2">
-									<li>在线客服</li>
 									<li>客服中心</li>
 								</ul>
 							</li>
@@ -872,7 +876,8 @@
 			
 			
 			<div class="userlogin">
-				<span class="user-img"></span>
+				<span class="user-img">
+                </span>
 				<div id="userbox" class="b">
 					<div class="userbox_box">
 						<span class="user_close">
@@ -994,21 +999,25 @@
 
                         {% for dayshop in everydayshop %}
 						<li>
+                         <a href="{% url 'app:goodsinfo' dayshop.goodsid %}">
 							<div class="shadowbox"></div>
-							<div class="shadowbox_rush">
-								<p>已出售<span id="sallNum">{{ dayshop.sall }}</span>件</p>
-							</div>
-							<div class="rushGoods_list_img">
-								<img src="{% static dayshop.img %}"/>
-							</div>
-							<div class="rushGoods_list_state">
-								<span class="rushGoods_list_state_left">
-									<span style="font-size: 8px">{{ dayshop.name }}</span>
-								</span>
-								<span class="rushGoods_list_state_right">
-									￥{{ dayshop.menoy }}
-								</span>
-							</div>
+                            <div class="shadowbox_rush">
+                                <p>已出售<span id="sallNum">{{ dayshop.sall }}</span>件</p>
+                            </div>
+
+                                <div class="rushGoods_list_img">
+                                    <img src="{% static dayshop.img %}"/>
+                                </div>
+                            <div class="rushGoods_list_state">
+                                <span class="rushGoods_list_state_left">
+                                    <span style="font-size: 10px">{{ dayshop.name }}</span>
+                                </span>
+                                <span class="rushGoods_list_state_right">
+                                    ￥{{ dayshop.menoy }}
+                                </span>
+                            </div>
+                          </a>
+
 						</li>
                         {% endfor %}
 

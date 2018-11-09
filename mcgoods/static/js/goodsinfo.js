@@ -17,12 +17,12 @@ $(function() {
 
 	var goodsId = location.search.replace("?", "");
 
-	//获取数据
-	$.get("json/goodsinfo.json", function(data) {
+	// 获取数据
+	$.get("/static/json/goodsinfo.json", function(data) {
 
 		for(var j = 0; j < data.length; j++) {
 			var obj = data[j];
-			if(obj.id == goodsId) {
+			if(obj.id == goodsid) {
 				var thisId = obj.id;
 				var path1 = obj.path1;
 				var path2 = obj.path2;
@@ -62,7 +62,7 @@ $(function() {
 				//				console.log($(".standrad_size ul li").length);
 				//默认规格中的第一个为选中状态
 				$(".standrad_size ul li").first().addClass("standrad_size_select");
-				//				
+				//
 				for(var i = 0; i < type.length; i++) {
 					var valu = type[i];
 					$('.related_type_barnd').append("<a>" + valu + "</a>");
@@ -82,7 +82,7 @@ $(function() {
 					$('#standrad').after(neil);
 					//默认规格中的第一个为选中状态
 					$(".choosecolor ul li").first().addClass("standrad_size_select");
-					//				
+					//
 				}
 
 				for(var i = 0; i < otherbrand.length; i++) {
@@ -104,9 +104,9 @@ $(function() {
 					//					console.log($(this).find("img").prop("src"));
 					var index = $(this).index() + 1;
 					//					console.log(index);
-					$('#smallImg').find("img").prop("src", "images/ave" + thisId + index + ".jpg");
+					$('#smallImg').find("img").prop("src", "/static/images/ave" + thisId + index + ".jpg");
 					console.log($('#smallImg').find("img").prop("src"));
-					$('#bigArea').find("img").prop("src", "images/big" + thisId + index + ".jpg");
+					$('#bigArea').find("img").prop("src", "/static/images/big" + thisId + index + ".jpg");
 
 				})
 

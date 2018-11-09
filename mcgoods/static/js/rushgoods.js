@@ -2,7 +2,7 @@ $(function(){
 	
 
 
-	$.get("json/goodsinfo.json",function(data){
+	$.get("/static/json/goodsinfo.json",function(data){
 		for(var i=0;i<data.length;i++){
 //			console.log(data.length);
 			var id = data[i].id;
@@ -46,7 +46,7 @@ $(function(){
 			$(".rushGoods_list li").mouseenter(function(){
 				$(this).find(".shadowbox").show();
 				$(this).find(".shadowbox_rush").show();
-				$(this).find(".shadowbox_rush").animate({"top":30});
+				$(this).find(".shadowbox_rush").animate({"top":0});
 				
 			})
 			$(".rushGoods_list li").mouseleave(function(){

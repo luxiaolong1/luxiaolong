@@ -74,9 +74,9 @@
 	/*float: left;*/
 /*}*/
 
-.active{
-	background: #FF5C00 !important;
-}
+/*.active{*/
+	/*background: #FF5C00 !important;*/
+/*}*/
 
 #ad{
 	position: fixed;
@@ -146,13 +146,18 @@
 	cursor: pointer;
 }
 
-
+.userimg img{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
 
 .user-img{
 	display: inline-block;
 	position: relative;
 	top: 5px;
-	width: 22px;
+	width: 26px;
 	height: 26px;
 	background: url(../images/righticon.png) no-repeat 0px 2px;
 }

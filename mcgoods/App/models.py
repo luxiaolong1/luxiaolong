@@ -2,10 +2,18 @@ from django.db import models
 
 # Create your models here.
 
+# 登陆注册
 class User(models.Model):
+    # 账号
+    account = models.CharField(max_length=80, unique=True)
+    # 用户名
     username = models.CharField(max_length=80)
+    # 密码
     password = models.CharField(max_length=256)
+    # 手机号
     tel = models.CharField(max_length=20)
+
+
 
 # 轮播图模型
 class Lunbo(models.Model):
@@ -38,10 +46,11 @@ class Goodsinfo(models.Model):
 # 特惠专选 今日精选
 # 1	1	images/20160930104414_10_1182.jpg	周年庆奶粉	满888送周庆礼  	95
 # 2	1	images/20160930102021_10_1182.jpg	周年庆辅食	美味满168减60	4
-
 class Special(models.Model):
     part = models.IntegerField()
     bg_img = models.CharField(max_length=100)
     htwo = models.CharField(max_length=100)
     spano = models.CharField(max_length=100)
     menoy = models.IntegerField()
+
+

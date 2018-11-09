@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+
 		<meta charset="UTF-8">
 		<title>母婴之家-让宝宝过得更好</title>
 		<link rel="stylesheet" type="text/css" href="{%static 'css/goodsinfo.css'%}"/>
@@ -868,24 +869,54 @@
 				<div class="main_top">
 					<b >首页</b>
 					<span>></span>
-					<!--<a >洗护用品</a>
+
+
+                    {% for pa1 in goodsdetail %}
+                         <a >{{ pa1.path1 }}</a>
+                    {% endfor %}
+
 					<span>></span>
-					<a >宝宝洗浴</a>
+					{% for pa2 in goodsdetail %}
+                       <a >{{ pa2.path2 }}</a>
+					{% endfor %}
+
 					<span>></span>
-					<a >哈罗闪婴儿二合一500ml+mini七色小鸭(颜色随机)</a>-->
+					{% for na in goodsdetail %}
+					    <a >{{ na.name }}</a>
+					{% endfor %}
+
+
+
 				</div>
 				<div class="main_center">
 					<div class="main_center_left">
 						<div class="main_center_left_img" id="smallImg">
 							<!--<img src="images/152831_01_01 (1).jpg" alt="" />-->
 							<div id="smallArea" ></div>
+{#                            aveimg#}
+                            {% for aveg in avelist %}
+                                <img src="{%static aveg %}">
+
+                            {% endfor %}
+
 						</div>
 						<div id="bigArea">
-							<img src="{%static 'images/154683_01_01.jpg'%}" id="bigImg"/>
+							{% for bigg in biglist %}
+                                <img src="{% static bigg %}" id="bigImg"/>
+							{% endfor %}
+
+{#                            bigimg#}
 						</div>
 						<div class="main_center_left_bottom">
 							<span class="main_samll_list_left"></span>
 							<ul class="listImg">
+{#                                smallimg#}
+                                {% for smallg in smalllist %}
+                                    <li>
+                                        <img src="{% static smallg %}" >
+                                    </li>
+                                {% endfor %}
+
 								<!--<li>
 									<img src="images/152831_01_01.jpg"/>
 								</li>
@@ -920,6 +951,15 @@
 						<div id="name">
 							<!--<h1>哈罗闪婴儿二合一500ml+mini七色小鸭（颜色随机） </h1>-->
 							<!--<a href="#">天天特价10/8</a>-->
+
+                            {% for na in goodsdetail %}
+                               <h1>{{ na.name }} </h1>
+                            {% endfor %}
+
+                            {% for ac in goodsdetail %}
+                                 <a href="#">{{ ac.active }}10/8</a>
+                            {% endfor %}
+
 						</div>
 						<div class="reciprocal_goods">
 							<strong>限时抢购，离促销结束还剩：</strong><span id="productinfo">00天<a class="hour"></a>时<a class="min"></a>分<a class="sec"></a>秒</span>
@@ -927,12 +967,20 @@
 						<div class="fahuo_chang">
 							<i></i>
 							<!--<a>母婴之家发货</a>-->
+                            {% for ship in goodsdetail %}
+                                <a>{{ ship.shipment }}</a>
+                            {% endfor %}
+
 						</div>
 						<div class="choosegoods">
 							<ul id="summary">
 								<li id="summary_price">
 									<div class="cuxiao st">促 销 价</div>
 									<!--<strong class="p-price">￥99.00</strong>-->
+                                    {% for meno in goodsdetail %}
+                                       <strong class="p-price">￥{{ meno.menoy }}</strong>
+                                    {% endfor %}
+
 								</li>
 								<li id="promotion">
 									<div class="cuxiao st">促销信息</div>
@@ -1114,10 +1162,31 @@
 											<!--<li class="standrad_size_select">
 												<a>800g</a>
 											</li>-->
+                                            {% for sizes in sizelist %}
+                                               <li class="standrad_size_select">
+                                                 <a>{{ sizes }}</a>
+                                               </li>
+                                            {% endfor %}
+
+										</ul>
+									</div>
+
+
+									<div class="cuxiao st">颜&nbsp;&nbsp;色</div>
+									<div class="standrad_size">
+										<ul>
+											<!--<li class="standrad_size_select">
+												<a>800g</a>
+											</li>-->
+                                            {% for col in colorlist %}
+                                               <li class="standrad_size_select">
+                                                 <a>{{ col }}</a>
+                                               </li>
+                                            {% endfor %}
+
 										</ul>
 									</div>
 								</li>
-								
 								<li class="choose_amout">
 									<div class="cuxiao st">&nbsp;&nbsp;</div>
 									<div class="choose_amout_count">
@@ -1189,6 +1258,10 @@
 								<h2>相关分类</h2>
 							</div>
 							<div class="related_type_barnd">
+                                {% for ty in typelist %}
+                                    <a href="#">{{ ty }}</a>
+                                {% endfor %}
+
 								<!--<a href="">诺优能</a><a href="">可瑞康</a>
 								<a href="">诺优能</a><a href="">可瑞康</a>
 								<a href="">诺优能</a><a href="">可瑞康</a>
@@ -1201,6 +1274,10 @@
 								<h2>其他同类品牌</h2>
 							</div>
 							<div class="other_type_barnd">
+                                {% for oth in otherlist %}
+                                    <a href="#">{{ oth }}</a>
+                                {% endfor %}
+
 								<!--<a href="">惠氏</a><a href="">可瑞康</a>
 								<a href="">多美滋</a><a href="">可瑞康</a>
 								<a href="">诺优能</a><a href="">可瑞康</a>
@@ -1251,9 +1328,17 @@
 										<li>奶粉阶段：3段</li>
 										<li>产地：瑞士</li>
 										<li>奶粉类型：幼儿奶粉</li>-->
+                                        {% for list1 in intrlist1 %}
+                                            <strong><li>{{ list1 }}</li></strong>
+                                        {% endfor %}
+
 									</ul>
 								</div>
 								<div class="details_goods_one">
+                                    {% for list2 in intrlist2 %}
+                                        <img src="{% static list2 %}" alt="">
+                                    {% endfor %}
+                                    
 									<!--<img src="images/20160616145859_555_6360168610007242895525192.jpg" alt="" />-->
 								</div>
 								<div class="goods_comment">

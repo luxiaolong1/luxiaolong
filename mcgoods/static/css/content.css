@@ -118,7 +118,7 @@
 
 .rushGoods_list li img{
 	width: 240px;
-	height: 240px;
+	height: 235px;
 }
 
 .rushGoods_list_state_left{
@@ -160,7 +160,7 @@
 	height: 205px;
 	z-index: 2;
 	display: none;
-	background: url(../images/newIndexIcon.png) no-repeat 0 -122px;
+	background: url(/static/images/newIndexIcon.png) no-repeat 0 -122px;
 }
 
 

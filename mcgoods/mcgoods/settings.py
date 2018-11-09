@@ -80,7 +80,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'mcgoods',   #数据库名字
         'USER': 'root',
-        'PASSWORD': 'long159',
+        'PASSWORD': '123456',
         'HOST': '127.0.0.1',
         'PORT': 3306
     }
@@ -128,6 +128,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/uploads')
 
 
 

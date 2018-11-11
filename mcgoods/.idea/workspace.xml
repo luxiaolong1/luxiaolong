@@ -2,19 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="556215b1-b6ec-43b0-ac9d-f5d56b419748" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/static/js/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/36ea5111-e7ee-4273-9230-ac62b325f64a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/36ea5111-e7ee-4273-9230-ac62b325f64a.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/migrations/0002_remove_user_token.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/migrations/0003_goucar.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/App/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/App/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/App/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/App/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/goodsinfo.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/goodsinfo.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/onload.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/onload.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/registerheader.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/registerheader.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/registerAxf.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/registerAxf.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/goodsinfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/goodsinfo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/goodsinfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/goodsinfo.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/goucar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/goucar.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/onload.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/onload.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/register.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -62,47 +64,47 @@
     <session id="-454446763">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="12" />
+          <entry key="project.closed" value="15" />
           <entry key="project.open.time.15" value="1" />
           <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.20" value="1" />
-          <entry key="project.open.time.22" value="3" />
+          <entry key="project.open.time.22" value="5" />
           <entry key="project.open.time.23" value="1" />
-          <entry key="project.open.time.24" value="1" />
+          <entry key="project.open.time.24" value="2" />
           <entry key="project.open.time.25" value="2" />
           <entry key="project.open.time.26" value="1" />
-          <entry key="project.open.time.27" value="1" />
+          <entry key="project.open.time.27" value="3" />
           <entry key="project.open.time.36" value="1" />
           <entry key="project.open.time.37" value="1" />
           <entry key="project.open.time.38" value="1" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="18" />
+          <entry key="project.opened" value="23" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="App_goodsinfo" value="21" />
-          <entry key="App_goucar" value="2" />
+          <entry key="App_goodsinfo" value="28" />
+          <entry key="App_goucar" value="11" />
           <entry key="App_lunbo" value="4" />
           <entry key="App_special" value="2" />
-          <entry key="App_user" value="6" />
-          <entry key="css" value="16" />
-          <entry key="html" value="31" />
-          <entry key="js" value="21" />
+          <entry key="App_user" value="7" />
+          <entry key="css" value="22" />
+          <entry key="html" value="41" />
+          <entry key="js" value="28" />
           <entry key="json" value="18" />
-          <entry key="py" value="25" />
+          <entry key="py" value="36" />
           <entry key="sql" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="16" />
-          <entry key="Database Element" value="35" />
-          <entry key="HTML" value="31" />
+          <entry key="CSS" value="22" />
+          <entry key="Database Element" value="52" />
+          <entry key="HTML" value="41" />
           <entry key="JSON" value="18" />
-          <entry key="JavaScript" value="21" />
-          <entry key="Python" value="25" />
+          <entry key="JavaScript" value="28" />
+          <entry key="Python" value="36" />
           <entry key="SQL" value="1" />
           <entry key="Scratch" value="1" />
         </counts>
@@ -110,41 +112,49 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="cell" value="98" />
-          <entry key="css" value="197" />
-          <entry key="html" value="2011" />
-          <entry key="js" value="72" />
+          <entry key="css" value="225" />
+          <entry key="html" value="2406" />
+          <entry key="js" value="554" />
           <entry key="json" value="2" />
-          <entry key="py" value="2181" />
+          <entry key="py" value="2462" />
           <entry key="sql" value="4" />
           <entry key="txt" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="197" />
-          <entry key="HTML" value="2011" />
+          <entry key="CSS" value="225" />
+          <entry key="HTML" value="2406" />
           <entry key="JSON" value="2" />
-          <entry key="JavaScript" value="72" />
+          <entry key="JavaScript" value="554" />
           <entry key="PLAIN_TEXT" value="11" />
-          <entry key="Python" value="2181" />
+          <entry key="Python" value="2462" />
           <entry key="Scratch" value="102" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5132106">
+    <splitter split-orientation="horizontal" split-proportion="0.6186253">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/App/views.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="149">
-                  <caret line="198" column="87" selection-start-line="198" selection-start-column="87" selection-end-line="198" selection-end-column="87" />
+                <state relative-caret-position="-484">
+                  <caret line="227" column="8" selection-start-line="227" selection-start-column="8" selection-end-line="227" selection-end-column="8" />
                   <folding>
                     <element signature="e#0#14#0" expanded="true" />
-                    <marker date="1541768136086" expanded="true" signature="3784:3785" ph="..." />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/templates/goodsinfo.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="225">
+                  <caret line="1237" column="46" lean-forward="true" selection-start-line="1237" selection-start-column="46" selection-end-line="1237" selection-end-column="46" />
                 </state>
               </provider>
             </entry>
@@ -152,17 +162,17 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/App/urls.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="272">
-                  <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+                <state relative-caret-position="85">
+                  <caret line="7" column="45" lean-forward="true" selection-start-line="7" selection-start-column="45" selection-end-line="7" selection-end-column="45" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/templates/index.html">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/templates/goucar.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="174">
-                  <caret line="838" column="42" lean-forward="true" selection-start-line="838" selection-start-column="42" selection-end-line="838" selection-end-column="42" />
+                <state relative-caret-position="17">
+                  <caret line="159" selection-start-line="159" selection-end-line="159" />
                 </state>
               </provider>
             </entry>
@@ -172,37 +182,27 @@
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/App/models.py">
+            <entry file="file://$PROJECT_DIR$/static/js/goodsinfo.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="163">
-                  <caret line="60" column="8" lean-forward="true" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="8" />
-                  <folding>
-                    <marker date="1541763485334" expanded="true" signature="1742:1953" ph="..." />
-                  </folding>
+                <state relative-caret-position="132">
+                  <caret line="69" column="18" selection-start-line="69" selection-start-column="18" selection-end-line="69" selection-end-column="18" />
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/templates/goucar.html">
+            <entry file="file://$PROJECT_DIR$/App/models.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="282">
-                  <caret line="62" column="67" selection-start-line="62" selection-start-column="67" selection-end-line="62" selection-end-column="67" />
-                  <folding>
-                    <element signature="e#2028#2034#0#HTML" expanded="true" />
-                    <element signature="e#2034#2040#0#HTML" expanded="true" />
-                    <element signature="n#style#0;n#a#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                  </folding>
+                <state relative-caret-position="663">
+                  <caret line="60" column="36" lean-forward="true" selection-start-line="60" selection-start-column="36" selection-end-line="60" selection-end-column="36" />
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/templates/goodsinfo.html">
+            <entry file="file://$PROJECT_DIR$/static/js/mycar.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="22287">
-                  <caret line="1338" column="72" selection-start-line="1338" selection-start-column="72" selection-end-line="1338" selection-end-column="72" />
-                </state>
+                <state relative-caret-position="-714" />
               </provider>
             </entry>
           </file>
@@ -222,6 +222,16 @@
       <find>registe_from_div parentCls</find>
       <find>register_box_right</find>
       <find>header_top_box_right</find>
+      <find>header_top_box</find>
+      <find>shopCar</find>
+      <find>choose_am</find>
+      <find>goodsinfocar</find>
+      <find>choose_num_box</find>
+      <find>choose_num_add</find>
+      <find>addToCar</find>
+      <find>goodsnum</find>
+      <find>#goodsnum</find>
+      <find>standrad</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -235,24 +245,25 @@
         <option value="$PROJECT_DIR$/static/js/rushgoods.js" />
         <option value="$PROJECT_DIR$/static/css/content.css" />
         <option value="$PROJECT_DIR$/App/demon.py" />
-        <option value="$PROJECT_DIR$/static/js/goodsinfo.js" />
         <option value="$PROJECT_DIR$/static/css/goodsin_main.css" />
-        <option value="$PROJECT_DIR$/templates/goodsinfo.html" />
         <option value="$PROJECT_DIR$/mcgoods/urls.py" />
         <option value="$PROJECT_DIR$/mcgoods/settings.py" />
-        <option value="$PROJECT_DIR$/static/css/banner.css" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/36ea5111-e7ee-4273-9230-ac62b325f64a/console.sql" />
-        <option value="$PROJECT_DIR$/static/css/registerheader.css" />
         <option value="$PROJECT_DIR$/static/js/registerAxf.js" />
         <option value="$PROJECT_DIR$/templates/register.html" />
         <option value="$PROJECT_DIR$/static/js/login.js" />
-        <option value="$PROJECT_DIR$/templates/onload.html" />
         <option value="$PROJECT_DIR$/static/css/onload.css" />
-        <option value="$PROJECT_DIR$/App/models.py" />
-        <option value="$PROJECT_DIR$/App/urls.py" />
+        <option value="$PROJECT_DIR$/static/css/banner.css" />
+        <option value="$PROJECT_DIR$/static/css/registerheader.css" />
+        <option value="$PROJECT_DIR$/static/css/goodsinfo.css" />
         <option value="$PROJECT_DIR$/templates/index.html" />
-        <option value="$PROJECT_DIR$/App/views.py" />
+        <option value="$PROJECT_DIR$/templates/onload.html" />
+        <option value="$PROJECT_DIR$/App/models.py" />
         <option value="$PROJECT_DIR$/templates/goucar.html" />
+        <option value="$PROJECT_DIR$/templates/goodsinfo.html" />
+        <option value="$PROJECT_DIR$/App/urls.py" />
+        <option value="$PROJECT_DIR$/static/js/goodsinfo.js" />
+        <option value="$PROJECT_DIR$/App/views.py" />
       </list>
     </option>
   </component>
@@ -273,6 +284,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -288,18 +300,7 @@
             <path>
               <item name="mcgoods" type="b2602c69:ProjectViewProjectNode" />
               <item name="mcgoods" type="462c0819:PsiDirectoryNode" />
-              <item name="mcgoods" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mcgoods" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mcgoods" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mcgoods" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mcgoods" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="mcgoods" type="b2602c69:ProjectViewProjectNode" />
@@ -310,14 +311,13 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="database.console.LAST_STATE" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../axfproject/Django1" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
@@ -419,7 +419,7 @@
     <frame x="67" y="25" width="1295" height="590" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.16973579" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.16813451" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -433,7 +433,7 @@
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32969433" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.2838428" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.2816594" />
       <window_info anchor="bottom" id="Database Changes" order="12" weight="0.32969433" />
       <window_info anchor="bottom" id="Python Console" order="13" />
       <window_info anchor="bottom" id="manage.py@mcgoods" order="14" weight="0.32969433" />
@@ -441,7 +441,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="SciView" order="3" />
-      <window_info anchor="right" id="Database" order="4" weight="0.116893515" />
+      <window_info anchor="right" id="Database" order="4" weight="0.27782226" />
     </layout>
     <layout-to-restore>
       <window_info content_ui="combo" id="Project" order="0" weight="0.1265012" />
@@ -516,18 +516,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/goodsinfo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="124" column="13" selection-start-line="124" selection-start-column="13" selection-end-line="124" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/goodsinfo.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-663" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/json/goodsinfo.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -562,20 +550,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/js/bootstrap.js">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/banner.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="148" column="8" selection-start-line="148" selection-start-column="8" selection-end-line="148" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.virtualenvs/python1809/lib/python3.6/site-packages/django/core/handlers/exception.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="40" selection-start-line="40" selection-end-line="40" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/App/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
@@ -625,13 +599,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://36ea5111-e7ee-4273-9230-ac62b325f64a/schema/mcgoods/table/App_user">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/js/login.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="47">
@@ -646,31 +613,80 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/onload.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="55">
-          <caret line="291" column="26" lean-forward="true" selection-start-line="291" selection-start-column="26" selection-end-line="291" selection-end-column="26" />
+    <entry file="das://36ea5111-e7ee-4273-9230-ac62b325f64a/schema/mcgoods/table/App_user">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/onload.html">
+    <entry file="file://$PROJECT_DIR$/static/css/banner.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="109" column="66" selection-start-line="109" selection-start-column="66" selection-end-line="109" selection-end-column="66" />
+        <state relative-caret-position="285">
+          <caret line="597" lean-forward="true" selection-start-line="597" selection-end-line="597" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/css/registerheader.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-583">
-          <caret line="336" column="19" selection-start-line="336" selection-start-column="19" selection-end-line="336" selection-end-column="19" />
+        <state relative-caret-position="337">
+          <caret line="579" lean-forward="true" selection-start-line="579" selection-end-line="579" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/goodsinfo.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="1109" column="26" lean-forward="true" selection-start-line="1109" selection-start-column="4" selection-end-line="1109" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/onload.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="550" column="26" selection-start-line="550" selection-start-column="4" selection-end-line="550" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/register.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="129">
-          <caret line="88" column="39" lean-forward="true" selection-start-line="88" selection-start-column="39" selection-end-line="88" selection-end-column="39" />
+          <caret line="88" column="39" selection-start-line="88" selection-start-column="39" selection-end-line="88" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="1345" column="100" lean-forward="true" selection-start-line="1345" selection-start-column="4" selection-end-line="1345" selection-end-column="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/onload.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="478">
+          <caret line="109" column="71" selection-start-line="109" selection-start-column="71" selection-end-line="109" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/python1809/lib/python3.6/site-packages/django/db/models/query.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98">
+          <caret line="288" selection-start-line="288" selection-end-line="288" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/python1809/lib/python3.6/site-packages/django/db/migrations/autodetector.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98">
+          <caret line="826" selection-start-line="826" selection-end-line="826" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/python1809/lib/python3.6/site-packages/django/db/migrations/graph.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98">
+          <caret line="103" selection-start-line="103" selection-end-line="103" />
         </state>
       </provider>
     </entry>
@@ -681,6 +697,46 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/goucar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="159" selection-start-line="159" selection-end-line="159" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/goodsinfo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="1237" column="46" lean-forward="true" selection-start-line="1237" selection-start-column="46" selection-end-line="1237" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="7" column="45" lean-forward="true" selection-start-line="7" selection-start-column="45" selection-end-line="7" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/python1809/lib/python3.6/site-packages/django/core/handlers/exception.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="52">
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/mycar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-714" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/goodsinfo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="69" column="18" selection-start-line="69" selection-start-column="18" selection-end-line="69" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
     <entry file="das://36ea5111-e7ee-4273-9230-ac62b325f64a/schema/mcgoods/table/App_goucar">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -688,57 +744,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/App/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/App/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="60" column="8" lean-forward="true" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="8" />
-          <folding>
-            <marker date="1541763485334" expanded="true" signature="1742:1953" ph="..." />
-          </folding>
+        <state relative-caret-position="663">
+          <caret line="60" column="36" lean-forward="true" selection-start-line="60" selection-start-column="36" selection-end-line="60" selection-end-column="36" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/App/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="198" column="87" selection-start-line="198" selection-start-column="87" selection-end-line="198" selection-end-column="87" />
+        <state relative-caret-position="-484">
+          <caret line="227" column="8" selection-start-line="227" selection-start-column="8" selection-end-line="227" selection-end-column="8" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
-            <marker date="1541768136086" expanded="true" signature="3784:3785" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/goodsinfo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22287">
-          <caret line="1338" column="72" selection-start-line="1338" selection-start-column="72" selection-end-line="1338" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/goucar.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="62" column="67" selection-start-line="62" selection-start-column="67" selection-end-line="62" selection-end-column="67" />
-          <folding>
-            <element signature="e#2028#2034#0#HTML" expanded="true" />
-            <element signature="e#2034#2040#0#HTML" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="838" column="42" lean-forward="true" selection-start-line="838" selection-start-column="42" selection-end-line="838" selection-end-column="42" />
         </state>
       </provider>
     </entry>

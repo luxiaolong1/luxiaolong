@@ -34,7 +34,6 @@ class Goodsinfo(models.Model):
     choosecolor = models.CharField(max_length=100)
     img = models.CharField(max_length=100)
     imgt = models.CharField(max_length=100)
-    sall = models.CharField(max_length=100)
     smallimg = models.CharField(max_length=100)
     aveimg = models.CharField(max_length=100)
     bigimg = models.CharField(max_length=100)

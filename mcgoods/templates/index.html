@@ -85,13 +85,13 @@
 {#                        <span style="display: inline-block">&nbsp;欢迎来到母婴之家！</span>#}
 						<ul>
 							<li>
-                                <a>欢迎来到母婴之家！</a>
+                                <span class="hellowword">&nbsp;欢迎来到母婴之家！</span>&nbsp;&nbsp;
 
                                 <div>
 
                                     {% if account %}
                                         <p>账号: {{ account }}</p>
-                                        <a href="{% url 'app:logout' %}" style="color: orange">[退出]</a>
+                                        <a href="{% url 'app:logout' %}" style="color: rgb(236,103,23)">[退出]</a>
                                     {% else %}
                                         <a class="orange denglu" href="{% url 'app:onload' %}">[登陆]</a>
                                         <a class="orange zhuce" href="{% url 'app:register' %}">[免费注册]</a>
@@ -887,19 +887,47 @@
 					<i class="jj"></i>
 				</div>
 			</div>
-			<div class="shopCar">
-				<a class="topline"></a>
-				<div class="shopCar_box">
-					<span class="shopCar_img">
-					</span>
-					
-					<p>购<br>物<br>车<br></p>
-					<br>
-					
-				</div>
-				<a class="orange" id="num">（0）</a>
-				<a class="topline"></a>
-			</div>
+
+            {% if account %}
+
+            <div class="shopCar">
+                <a class="topline"></a>
+                <a href="{% url 'app:goucar' %}">
+                    <div class="shopCar_box">
+                        <span class="shopCar_img">
+                        </span>
+
+                        <p style="color: black">购<br>物<br>车<br></p>
+                        <br>
+
+                    </div>
+                </a>
+                <a class="orange" id="num">（0）</a>
+                <a class="topline"></a>
+            </div>
+
+            {% else %}
+
+            <div class="shopCar">
+
+                <a class="topline"></a>
+                <a href="{% url 'app:onload' %}" >
+                    <div class="shopCar_box">
+                        <span class="shopCar_img">
+                        </span>
+
+                        <p style="color: black">购<br>物<br>车<br></p>
+                        <br>
+
+                    </div>
+                </a>
+                <a class="orange" id="num">（0）</a>
+                <a class="topline"></a>
+
+            </div>
+
+            {% endif %}
+
 			<div class="erweima">
 				<span class="erweima_img">
 					

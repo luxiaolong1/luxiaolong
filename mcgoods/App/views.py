@@ -43,9 +43,12 @@ def index(request):
 
 # 商品详情
 def goodsinfo(request, goodsid):
-    # print(goodsid)
-    # goodsdetail = Goodsinfo.objects.all()
+    # ## 状态保持 - 获取session
+    account = request.session.get('account')
+
+
     goodsdetail = Goodsinfo.objects.filter(goodsid=goodsid)
+    goods = goodsdetail[0]
 
     aveimgs = goodsdetail[0].aveimg
     avelist = []
@@ -66,11 +69,11 @@ def goodsinfo(request, goodsid):
     smalllist=smalllist[1:]
 
     # 规格standrad_size_select
-    sizes = goodsdetail[0].standard
-    sizelist = []
-    for size in sizes.split('#'):
-        sizelist.append(size)
-    sizelist=sizelist[1:]
+    # sizes = goodsdetail[0].standard
+    # sizelist = []
+    # for size in sizes.split('#'):
+    #     sizelist.append(size)
+    # sizelist=sizelist[1:]
 
     colors = goodsdetail[0].choosecolor
     colorlist =[]
@@ -97,17 +100,29 @@ def goodsinfo(request, goodsid):
         intrlist.append(intro)
     intrlist1=intrlist[1:2]
     intrlist2=intrlist[2:]
+
+    # 购物车数据
+    account = request.session.get('account')
+    carts = []
+    if account:  # 根据用户，获取对应用户下所有购物车数据
+        user = User.objects.get(account=account)
+        carts = Goucar.objects.filter(user=user)
+
     data = {
+        'goods':goods,
+        'account':account,
         'goodsdetail':goodsdetail,
         'avelist':avelist,
         'biglist':biglist,
         'smalllist':smalllist,
-        'sizelist':sizelist,
+        # 'sizelist':sizelist,
         'colorlist':colorlist,
         'typelist':typelist,
         'otherlist':otherlist,
         'intrlist1':intrlist1,
         'intrlist2':intrlist2,
+
+        'carts':carts,
     }
     # print(data)
     return render(request, 'goodsinfo.html', context=data)
@@ -192,16 +207,65 @@ def checkaccount(request):
 
 # 购物车
 def goucar(request):
+    goodsid = request.GET.get('goodsid')
     account = request.session.get('account')
+
+    # goodsdetail = Goodsinfo.objects.filter(goodsid=goodsid)
+    # smallimgs = goodsdetail[0].smallimg
+    # smalllist = []
+    # for small in smallimgs.split('#'):
+    #     smalllist.append(small)
+    # smalllist = smalllist[1:2]
+
     if account:
         user = User.objects.get(account=account)
         carts = Goucar.objects.filter(user=user).exclude(number=0)
-        return render(request, 'goucar.html', context={'carts':carts, 'account':account})
+        return render(request, 'goucar.html', context={'carts':carts, 'account':account,})
     else: # 跳转到登录页面
         return redirect('app:onload')
 
+# gooodsinfo一次性添加
+def addtocar(request):
+    goodsid = request.GET.get('goodsid')
+    gooodmun = request.GET.get('gooodmun')
+    account = request.session.get('account')
+    responseData = {
+        'msg': '添加购物车成功',
+        'status': 1  # 1标识添加成功，0标识添加失败，-1标识未登录
+    }
+    if account:  # 登录 [直接操作模型]
+        # 获取用户
+        user = User.objects.get(account=account)
+        # 获取商品
+        goods = Goodsinfo.objects.get(pk=goodsid)
 
-# 添加购物车
+        # 商品已经在购物车，只修改商品个数
+        # 商品不存在购物车，新建对象（加入一条新的数据）
+        carts = Goucar.objects.filter(user=user).filter(goods=goods)
+        if carts.exists():  # 修改数量
+            cart = carts.first()
+            cart.number = cart.number + gooodmun
+            cart.save()
+            responseData['number'] = cart.number
+
+        else:  # 添加一条新记录
+            cart = Goucar()
+            cart.user = user
+            cart.goods = goods
+            cart.number = gooodmun
+            cart.save()
+
+            responseData['number'] = cart.number
+        return JsonResponse(responseData)
+    else:  # 未登录 [跳转到登录页面]
+        # 由于addcart这个是 用于 ajax操作， 所以这里是不能进行重定向!!
+        # return redirect('axf:login')
+        responseData['msg'] = '未登录，请登录后操作'
+        responseData['status'] = -1
+        return JsonResponse(responseData)
+
+
+# 购物车中的添加
 def addcart(request):
     goodsid = request.GET.get('goodsid')
     account = request.session.get('account')
@@ -295,3 +359,5 @@ def changecartselect(request):
         cart.save()
 
         return JsonResponse({'msg': '反选操作成功', 'status': 1})
+
+

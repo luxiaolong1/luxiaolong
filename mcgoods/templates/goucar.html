@@ -9,31 +9,31 @@
 		<link rel="stylesheet" type="text/css" href="{%static 'css/gocar.css'%}"/>
 		<link rel="stylesheet" type="text/css" href="{%static 'css/footer.css'%}"/>
 		
-		<script src="{%static  'js/jquery-1.12.0.js'%}" type="text/javascript" charset="utf-8"></script>
-		
+		<script src="{%static  'js/jquery.js'%}" type="text/javascript" charset="utf-8"></script>
+		<script src="{% static 'js/bootstrap.js' %}"></script>
 		<script src="{%static  'js/jquery.cookie.js'%}" type="text/javascript" charset="utf-8"></script>
 		<script src="{%static  'js/daojishi.js'%}" type="text/javascript" charset="utf-8"></script>
-		<script src="{%static  'js/hover.js'%}" type="text/javascript" charset="utf-8"></script>
+{#		<script src="{%static  'js/hover.js'%}" type="text/javascript" charset="utf-8"></script>#}
 		<script src="{%static  'js/mycar.js'%}" type="text/javascript" charset="utf-8"></script>
 		<script src="{%static  'js/footer.js'%}" type="text/javascript" charset="utf-8"></script>
-		<script type="text/javascript">
-			$(function(){
-				
-				var nn = $.cookie("load") ? JSON.parse( $.cookie("load") ) : [];
-				if(nn.name){
-					$(".hellowword").html(nn.name + "&nbsp;&nbsp;欢迎来到母婴之家！");
-					$(".denglu").hide();
-					$(".zhuce").hide();
-//					$("<a class='orange' >[退出] </a>");
-					$(".header_top_box_right ul li").first().append($("<a class='orange exit' href='index.html' >[退出] </a>"));
-				
-					$(".exit").click(function(){
-						$.cookie("load", "", {expires:0, path:"/"}); //清空cookie
-					})
-				}
-				
-			})
-		</script>
+{#		<script type="text/javascript">#}
+{#			$(function(){#}
+{#				#}
+{#				var nn = $.cookie("load") ? JSON.parse( $.cookie("load") ) : [];#}
+{#				if(nn.name){#}
+{#					$(".hellowword").html(nn.name + "&nbsp;&nbsp;欢迎来到母婴之家！");#}
+{#					$(".denglu").hide();#}
+{#					$(".zhuce").hide();#}
+{#//					$("<a class='orange' >[退出] </a>");#}
+{#					$(".header_top_box_right ul li").first().append($("<a class='orange exit' href='index.html' >[退出] </a>"));#}
+{#				#}
+{#					$(".exit").click(function(){#}
+{#						$.cookie("load", "", {expires:0, path:"/"}); //清空cookie#}
+{#					})#}
+{#				}#}
+{#				#}
+{#			})#}
+{#		</script>#}
 		
 		
 	</head>
@@ -44,7 +44,7 @@
 				<div class="header_top_box">
 					<div class="header_top_box_left">
 						<ul>
-                            <li class="goindex"><a href="{% url 'app:index' %}">母婴之家</a></li>
+                            <li class="goindex"><a href="{% url 'app:index' %}" style="color: rgb(236,103,23)">母婴之家</a></li>
 							<li>母婴海淘</li>
 							<li class="header_top_box_left_last-child"><span class="iphone"></span>手机版</li>
 						</ul>
@@ -138,59 +138,70 @@
 			</div>-->
 			
 			<!--通过cookie添加新节点-->
-			<!--<ul class="cargoods">
-				<li class="cargoods_type">
-					<a  class="cargoods_type_image">
-						<img src="images/small81.jpg" alt="" />
-					</a>
-					<span class="cargoods_type_title"><a>Minimoto小米米16C小脚丫长袖 后弧防湿和短袍3:6月/粉红</a></span>
-					<span class="cargoods_type_danjia">
-						<a class="newprice">￥<i>34.00</i></a>
-						<br />
-						<a class="oldprice">￥<i>68.00</i></a>
-					</span>
-					<span class="cargoods_type_hownum">
-						<div class="cargoods_type_hownum_box">
-							<i class="box_left">-</i>
-							<input type="text" id="num_mycar" value="1"  class="zhi"/>
-							<i class="box_right">+</i>
-						</div>
-					</span>
-					<span class="cargoods_type_numcount">
-						<a class="newprice">￥<i>33.00</i></a>
-					</span>
-					<span class="cargoods_type_delete">
-						<a id="id" >删除</a>
-					</span>
-				</li>
-				<li class="evet_info">
-					<span class="evet_info_active">
-						<a href="">满减：minimoto满99减10</a>
-					</span>
-					<span class="clear_box"> </span>
-					<span class="count_active">已购34元,还差65元就可以参加满99元减10元</span>
-					<span class="ball"></span>
-					<span class="ball_top"></span>
-				</li>
-			</ul>-->
+			<ul class="cargoods">
+                {% for cart in carts %}
+                    <li class="cargoods_type" class="goods">
+                        <div class="confirm-wrapper" cartid="{{ cart.id }}" isselect="{{ cart.isselect }}">
+                                                    <span class="glyphicon glyphicon-ok"></span>
+                                                    <span class="no"></span>
+                            {% if cart.isselect %}
+                                <span class="glyphicon glyphicon-ok"></span>
+                            {% else %}
+                                <span class="no"></span>
+                            {% endif %}
+                        </div>
+                        <a class="cargoods_type_image">
+                             <img src="{% static cart.goodsinfo.standard %}" alt="" />
+                        </a>
+                        <span class="cargoods_type_title"><a>{{ cart.goodsinfo.name }}</a></span>
+                        <span class="cargoods_type_danjia">
+                            <a class="newprice">￥<i>{{ cart.goodsinfo.menoy }}</i></a>
+                        </span>
+
+                        <span class="cargoods_type_hownum">
+                            <div class="cargoods_type_hownum_box">
+                                <span class="glyphicon glyphicon-minus" goodsid="{{ goods.id }}"></span>
+                                <span class="num">
+                                <i class="box_left">-</i>
+                                {% for cart in carts %}
+                                    {% if goods.id == cart.goodsinfo_id %}
+                                       <input type="text" id="num_mycar" value="{{ cart.number }}"  class="zhi"/>
+                                    {% endif %}
+                                {% endfor %}
+                                <i class="box_right">+</i>
+                                </span>
+                                <span class="glyphicon glyphicon-plus" goodsid="{{ goods.id }}"></span>
+                            </div>
+                        </span>
+
+                        <span class="cargoods_type_numcount">
+                            <a class="newprice">￥<i>{{ cart.goodsinfo.menoy }}</i></a>
+                        </span>
+                        <span class="cargoods_type_delete">
+                            <a id="id" >删除</a>
+                        </span>
+                    </li>
+
+                {% endfor %}
+			</ul>
 			
-			<div class="check_box">
-				<span class="check_box_text">已优惠</span>
-				<span class="check_box_n">小计</span>
-				<span class="check_box_nun">34.00</span>
-			</div>
+{#			<div class="check_box">#}
+{#				<span class="check_box_text">已优惠</span>#}
+{#				<span class="check_box_n">小计</span>#}
+{#				<span class="check_box_nun">34.00</span>#}
+{#			</div>#}
 		</div>
 		
-		<div class="couno_are">
-			<div class="couno_are_top">
-				<span class="cup">
-					<input type="text" name="" id="" value="" placeholder="请输入优惠码" class="number2"/>
-					<a href="" class="yong">使用</a>
-				</span>
-				<span class="couno_are_top_text">已优惠</span>
-				<span class="allnum">￥00.0</span>
-			</div>
-		</div>
+{#		<div class="couno_are">#}
+{#			<div class="couno_are_top">#}
+{#				<span class="cup">#}
+{#					<input type="text" name="" id="" value="" placeholder="请输入优惠码" class="number2"/>#}
+{#					<a href="" class="yong">使用</a>#}
+{#				</span>#}
+{#				<span class="couno_are_top_text">已优惠</span>#}
+{#				<span class="allnum">￥00.0</span>#}
+{#			</div>#}
+{#		</div>#}
 		
 		<div class="clearBox">
 			<a  class="clearcar">清空购物车</a>

@@ -1105,3 +1105,7 @@ body,html{
 	float: right !important;
 	color: #f90;
 }
+
+a{
+	color: rgb(236,103,23)
+}

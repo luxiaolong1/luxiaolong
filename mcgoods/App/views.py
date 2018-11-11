@@ -209,18 +209,16 @@ def checkaccount(request):
 def goucar(request):
     goodsid = request.GET.get('goodsid')
     account = request.session.get('account')
+    # 传用户所在商品集合
 
-    # goodsdetail = Goodsinfo.objects.filter(goodsid=goodsid)
-    # smallimgs = goodsdetail[0].smallimg
-    # smalllist = []
-    # for small in smallimgs.split('#'):
-    #     smalllist.append(small)
-    # smalllist = smalllist[1:2]
+
+
 
     if account:
         user = User.objects.get(account=account)
         carts = Goucar.objects.filter(user=user).exclude(number=0)
-        return render(request, 'goucar.html', context={'carts':carts, 'account':account,})
+        count = len(carts)
+        return render(request, 'goucar.html', context={'carts':carts, 'account':account,'goodsid':goodsid, 'count':count})
     else: # 跳转到登录页面
         return redirect('app:onload')
 
@@ -237,11 +235,13 @@ def addtocar(request):
         # 获取用户
         user = User.objects.get(account=account)
         # 获取商品
-        goods = Goodsinfo.objects.get(pk=goodsid)
+        # print(goodsid)
+        # print(type(goodsid))
+        goodsinfo = Goodsinfo.objects.get(goodsid=goodsid)
 
         # 商品已经在购物车，只修改商品个数
-        # 商品不存在购物车，新建对象（加入一条新的数据）
-        carts = Goucar.objects.filter(user=user).filter(goods=goods)
+        # 商品不存在购物车，新建对象（加入一条新的数据）********
+        carts = Goucar.objects.filter(user=user).filter(goodsinfo=goodsinfo)
         if carts.exists():  # 修改数量
             cart = carts.first()
             cart.number = cart.number + gooodmun
@@ -251,7 +251,7 @@ def addtocar(request):
         else:  # 添加一条新记录
             cart = Goucar()
             cart.user = user
-            cart.goods = goods
+            cart.goodsinfo = goodsinfo
             cart.number = gooodmun
             cart.save()
 
@@ -265,7 +265,7 @@ def addtocar(request):
         return JsonResponse(responseData)
 
 
-# 购物车中的添加
+# 购物车中添加操作
 def addcart(request):
     goodsid = request.GET.get('goodsid')
     account = request.session.get('account')
@@ -277,11 +277,11 @@ def addcart(request):
         # 获取用户
         user = User.objects.get(account=account)
         # 获取商品
-        goods = Goodsinfo.objects.get(pk=goodsid)
+        goodsinfo = Goodsinfo.objects.get(goodsid=goodsid)
 
         # 商品已经在购物车，只修改商品个数
         # 商品不存在购物车，新建对象（加入一条新的数据）
-        carts = Goucar.objects.filter(user=user).filter(goods=goods)
+        carts = Goucar.objects.filter(user=user).filter(goodsinfo=goodsinfo)
         if carts.exists():  # 修改数量
             cart = carts.first()
             cart.number = cart.number + 1
@@ -291,7 +291,7 @@ def addcart(request):
         else:  # 添加一条新记录
             cart = Goucar()
             cart.user = user
-            cart.goods = goods
+            cart.goods = goodsinfo
             cart.number = 1
             cart.save()
 
@@ -312,10 +312,11 @@ def subcart(request):
     # 对应用户 和 商品
     user = User.objects.get(account=account)
 
-    goods = Goodsinfo.objects.get(pk=goodsid)
+    goodsinfo = Goodsinfo.objects.get(goodsid=goodsid)
 
     # 删减操作
-    cart = Goucar.objects.filter(user=user).filter(goods=goods).first()
+    carts = Goucar.objects.filter(user=user).filter(goodsinfo=goodsinfo)
+    cart = carts.first()
     cart.number = cart.number - 1
     cart.save()
 

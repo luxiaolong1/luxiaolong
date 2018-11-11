@@ -65,10 +65,10 @@ $(function() {
 	$('.addToCar').click(function () {
 		// 购物车选择的数量
 		var gooodmun = $(this).prev('.choose_num_box').find('#goodsnum').attr('value');
-		console.log(gooodmun)
+		// console.log(gooodmun)
 		// 商品id
         var goodsid = $(this).attr('goodsid')
-        console.log(goodsid)
+        // console.log(goodsid)
 		// that为了解决，在ajax中，this指向问题
 		var $that = $(this)
 		$.get('/addtocar/',{'goodsid':goodsid,'gooodmun':gooodmun}, function (response) {
@@ -76,7 +76,6 @@ $(function() {
 			if (response.status == -1){   // 未登录
 				window.open('/onload/', target='_self')
 			} else if (response.status == 1){ // 添加成功
-				// console.log('添加成功')
 
 			}
         })

@@ -1,18 +1,22 @@
 $(function () {
-    total()
+    // total()
     // 加操作
+    Amount()
     $('.box_right').click(function () {
         //获取购物车中书数量
         // var carnum = $(this).prev('.box_left').find('#num_mycar').attr('value');
         // console.log(carnum)
         var goodsid = $(this).attr('goodsid')
-        var $that = $(this)
         console.log(goodsid)
+        var $that = $(this)
+        // console.log(goodsid)
         $.get('/addcart/',{'goodsid':goodsid},function (response) {
             if (response.status == -1) { // 未登录
                 window.open('/login/', target = "_self")
             }else if (response.status == 1){
                 $that.prev().show().val(response.number)
+                Amount()
+                window.open('/goucar/', target = "_self")
                 // $that.prev().show().html()
             }
         })
@@ -30,30 +34,62 @@ $(function () {
                 var number = response.number
                 if (number>0){
                     $that.next().show().val(number)
+                    Amount()
+                    window.open('/goucar/', target = "_self")
                 } else {
-
+                    $that.parents("li").remove();
                 }
+            }
+        })
+    })
+
+    //# 删除
+    $('#id').click(function () {
+        var goodsid = $(this).attr('goodsid')
+        $.get('/delgoods/',{'goodsid':goodsid},function (response) {
+            if (response.status == 1){
+                $(this).parents("li").remove();
+                window.open('/goucar/', target = "_self")
+                Amount()
+            }
+        })
+
+    })
+
+    //# 删除carts
+    $('.clearcar').click(function () {
+        $.get('/delcarts/',function (response) {
+            if (response.status == 1){
+                window.open('/goucar/', target = "_self")
+                Amount()
             }
         })
     })
 
 
 
-
     //总计
-    function total() {
+    function Amount() {
         var sum = 0
         //遍历操作
         $('.cargoods_type').each(function () {
-            var $confirm = $(this).find('.confirm-wrapper')
-            var $content = $(this).find('#cargoodssum')
-            if ($confirm.find('.glyphicon-ok').length){
-                var price = $content.find('.price').attr('price')
-                var num = $content.find('#num_mycar').attr('value')
-                sum += price * num
-            }
+            var price = $(this).find('.price').attr('price')
+            // console.log(price)
+            var num = $(this).find('#num_mycar').attr('value')
+            // console.log(num)
+            sum += price * num
         })
-        // $('.clearBox .a-m .a-m-menoy').html(parseInt(sum))
+        $('.clearBox .a-m-menoy').html(parseInt(sum))
     }
 
+    // 下单
+    // $('.a-m-a').click(function () {
+    //     $.get('/generateorder/', function (response) {
+    //         console.log(response)
+    //         if (response.status == 1){  // 跳转到订单详情
+    //             window.open('/orderinfo/'+response.identifier +
+    //             '/', target='_self')
+    //         }
+    //     })
+    // })
 })

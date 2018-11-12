@@ -244,7 +244,7 @@ def addtocar(request):
         carts = Goucar.objects.filter(user=user).filter(goodsinfo=goodsinfo)
         if carts.exists():  # 修改数量
             cart = carts.first()
-            cart.number = cart.number + gooodmun
+            cart.number = cart.number + int(gooodmun)
             cart.save()
             responseData['number'] = cart.number
 
@@ -328,37 +328,97 @@ def subcart(request):
 
     return JsonResponse(responseData)
 
+# 删除
+def delgoods(request):
+    # 获取数据
+    goodsid = request.GET.get('goodsid')
+    account = request.session.get('account')
+    # 对应用户 和 商品
+    user = User.objects.get(account=account)
 
-# 修改选中状态
-def changecartstatus(request):
-    cartid = request.GET.get('cartid')
-    cart = Goucar.objects.get(pk=cartid)
-    cart.isselect = not cart.isselect
-    cart.save()
+    goodsinfo = Goodsinfo.objects.get(goodsid=goodsid)
+    # 删减操作
+    carts = Goucar.objects.filter(user=user).filter(goodsinfo=goodsinfo)
+    for cart in carts:
+        cart.delete()
+
+    # cart.save()
     responseData = {
-        'msg': '选中状态改变',
+        'msg': '购物车商品删除操作成功',
         'status': 1,
-        'isselect': cart.isselect
     }
+    return JsonResponse(responseData)
+# 删除carts
+def delcarts(request):
+    # 获取数据
 
+    account = request.session.get('account')
+    # 对应用户 和 商品
+    user = User.objects.get(account=account)
+
+
+    carts = Goucar.objects.filter(user=user)
+    for cart in carts:
+        cart.delete()
+
+    # cart.save()
+    responseData = {
+        'msg': '购物车删除操作成功',
+        'status': 1,
+    }
     return JsonResponse(responseData)
 
 
-# 全选/取消全选
-def changecartselect(request):
-    isselect = request.GET.get('isselect')
-    if isselect == 'true':
-        isselect = True
-    else:
-        isselect = False
-
-    account = request.session.get('account')
-    user = User.objects.get(account=account)
-    carts = Goucar.objects.first(user=user)
-    for cart in carts:
-        cart.isselect = isselect
-        cart.save()
-
-        return JsonResponse({'msg': '反选操作成功', 'status': 1})
 
 
+# # 修改选中状态
+# def changecartstatus(request):
+#     cartid = request.GET.get('cartid')
+#     cart = Goucar.objects.get(pk=cartid)
+#     cart.isselect = not cart.isselect
+#     cart.save()
+#     responseData = {
+#         'msg': '选中状态改变',
+#         'status': 1,
+#         'isselect': cart.isselect
+#     }
+# 
+#     return JsonResponse(responseData)
+# 
+# 
+# # 全选/取消全选
+# def changecartselect(request):
+#     isselect = request.GET.get('isselect')
+#     if isselect == 'true':
+#         isselect = True
+#     else:
+#         isselect = False
+# 
+#     account = request.session.get('account')
+#     user = User.objects.get(account=account)
+#     carts = Goucar.objects.first(user=user)
+#     for cart in carts:
+#         cart.isselect = isselect
+#         cart.save()
+# 
+#         return JsonResponse({'msg': '反选操作成功', 'status': 1})
+
+
+def generateorder(request):
+    return render(request, 'orderinfo.html')
+
+
+def orderinfo(request):
+    return None
+
+
+def pay(request):
+    return None
+
+
+def notifyurl(request):
+    return None
+
+
+def returnurl(request):
+    return None

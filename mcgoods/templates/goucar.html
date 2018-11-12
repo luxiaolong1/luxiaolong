@@ -132,18 +132,10 @@
 					<span class="delete">操作</span>
 				</div>
 			</div>
-			<!--<div class="delete_goods">
-				<p class="delete_goods_text">你确定删除该商品吗？</p>
-				<p class="delete_goods_button"><button class="button_one">确定</button><button class="button_two">取消</button></p>
-			</div>-->
-			
-			<!--通过cookie添加新节点-->
 			<ul class="cargoods">
                 {% for cart in carts %}
                     <li class="cargoods_type" id="cargoodssum" cartid = '{{ cart.id }}'>
                         <div class="confirm-wrapper" cartid="{{ cart.id }}" isselect="{{ cart.isselect }}">
-                            <span class="glyphicon glyphicon-ok"></span>
-                            <span class="no"></span>
                             {% if cart.isselect %}
                                 <span class="glyphicon glyphicon-ok"></span>
                             {% else %}
@@ -160,13 +152,11 @@
 
                         <span class="cargoods_type_hownum">
                             <div class="cargoods_type_hownum_box">
-                                <span class="glyphicon glyphicon-minus" ></span>
                                 <span class="num">
                                     <i class="box_left" goodsid="{{ cart.goodsinfo.id }}">-</i>
                                     <input type="text" id="num_mycar" value="{{ cart.number }}"  class="zhi"/>
                                     <i class="box_right" goodsid="{{ cart.goodsinfo.id }}">+</i>
                                 </span>
-                                <span class="glyphicon glyphicon-plus" ></span>
                             </div>
                         </span>
 
@@ -174,32 +164,28 @@
                             <a class="newprice">￥<i>{{ cart.goodsinfo.menoy }}</i></a>
                         </span>
                         <span class="cargoods_type_delete">
-                            <a id="id" >删除</a>
+                            <a id="id" goodsid="{{ cart.goodsinfo.id }}">删除</a>
                         </span>
                     </li>
 
                 {% endfor %}
 			</ul>
-		</div>
 
-		
-		<div class="clearBox">
-			<a  class="clearcar">清空购物车</a>
-			<div class="delete_goods" id="allclear">
-				<p class="delete_goods_text">你确定删除该商品吗？</p>
-				<p class="delete_goods_button"><button class="button_one">确定</button><button class="button_two">取消</button></p>
-			</div>
-			<div class="a-m">
+            <div class="clearBox">
+                <a class="clearcar">清空购物车</a>
+                <div class="a-m">
 				<span class="a-m-a">
 					<a href="">确认订单</a>
 				</span>
-				<span class="a-m-menoy">167</span>
+                    <span class="a-m-menoy">167</span>
 
-                 <span class="a-m-all">总共有<i>{{ count }}</i>件商品，总计（不含运费）</span>
+                    <span class="a-m-all">总共有<i>{{ count }}</i>件商品，总计（不含运费）</span>
 
-			</div>
-			
+                </div>
+            </div>
 		</div>
+
+
 		
 
 		<div class="recommend">

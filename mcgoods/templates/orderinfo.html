@@ -1,0 +1,270 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>母婴之家-【购物车】</title>
+		<link rel="stylesheet" type="text/css" href="{%static 'css/header.css'%}"/>
+		<link rel="stylesheet" type="text/css" href="{%static 'css/banner.css'%}"/>
+		<link rel="stylesheet" type="text/css" href="{%static 'css/gocar.css'%}"/>
+		<link rel="stylesheet" type="text/css" href="{%static 'css/footer.css'%}"/>
+		
+		<script src="{%static  'js/jquery.js'%}" type="text/javascript" charset="utf-8"></script>
+		<script src="{% static 'js/bootstrap.js' %}"></script>
+		<script src="{%static  'js/jquery.cookie.js'%}" type="text/javascript" charset="utf-8"></script>
+		<script src="{%static  'js/daojishi.js'%}" type="text/javascript" charset="utf-8"></script>
+{#		<script src="{%static  'js/hover.js'%}" type="text/javascript" charset="utf-8"></script>#}
+		<script src="{%static  'js/mycar.js'%}" type="text/javascript" charset="utf-8"></script>
+		<script src="{%static  'js/footer.js'%}" type="text/javascript" charset="utf-8"></script>
+{#		<script type="text/javascript">#}
+{#			$(function(){#}
+{#				#}
+{#				var nn = $.cookie("load") ? JSON.parse( $.cookie("load") ) : [];#}
+{#				if(nn.name){#}
+{#					$(".hellowword").html(nn.name + "&nbsp;&nbsp;欢迎来到母婴之家！");#}
+{#					$(".denglu").hide();#}
+{#					$(".zhuce").hide();#}
+{#//					$("<a class='orange' >[退出] </a>");#}
+{#					$(".header_top_box_right ul li").first().append($("<a class='orange exit' href='index.html' >[退出] </a>"));#}
+{#				#}
+{#					$(".exit").click(function(){#}
+{#						$.cookie("load", "", {expires:0, path:"/"}); //清空cookie#}
+{#					})#}
+{#				}#}
+{#				#}
+{#			})#}
+{#		</script>#}
+		
+		
+	</head>
+	<body>
+		
+		<div class="header">
+			<div class="header_top">
+				<div class="header_top_box">
+					<div class="header_top_box_left">
+						<ul>
+                            <li class="goindex"><a href="{% url 'app:index' %}" style="color: rgb(236,103,23)">母婴之家</a></li>
+							<li>母婴海淘</li>
+							<li class="header_top_box_left_last-child"><span class="iphone"></span>手机版</li>
+						</ul>
+					</div>
+					<div class="header_top_box_right">
+						<ul>
+							<li>
+                                <span class="hellowword">&nbsp;欢迎来到母婴之家！</span>&nbsp;&nbsp;
+{#                                <div>#}
+{#                                    <a class="orange denglu" href="{% url 'app:onload' %}">[登录]</a>&nbsp;#}
+{#                                    <a class="orange zhuce" href="{% url 'app:register' %}">[免费注册]</a>#}
+{#                                </div>#}
+                                <div>
+                                    {% if account %}
+                                        <p>账号: {{ account }}</p>
+                                        <a href="{% url 'app:logout' %}" style="color: orange">[退出]</a>
+                                    {% else %}
+                                        <a class="orange denglu" href="{% url 'app:onload' %}">[登陆]</a>
+                                        <a class="orange zhuce" href="{% url 'app:register' %}">[免费注册]</a>
+                                    {% endif %}&nbsp;
+                                </div>
+                            </li>
+							<li ><div class="header_top_box_right_div">我的订单<a class=".a"><i class="nav_right"></i></a></div>
+								<ul id="drop_down_list1">
+									<li>我的家</li>
+									<li>我的提问</li>
+									<li>我的评论</li>
+									<li>我的收藏</li>
+									<li>我的幸运星</li>
+								</ul>
+							</li>
+							<li><div class="header_top_box_right_div">客户服务<a class=".a"><i class="nav_right"></i></a></div>
+								<ul id="drop_down_list2">
+									<li>在线客服</li>
+									<li>客服中心</li>
+								</ul>
+							</li>
+							<li><div>商务合作</div></li>
+							<li><div class="header_top_box_right_div">网站导航<a class=".a"><i class="nav_right"></i></a></div>
+								<ul id="drop_down_list3">
+									<li>分类导航</li>
+									<li>品牌导航</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="header_center">
+				<div class="header_center_box">
+					<div class="header_center_box_logo">
+						<img src="{%static 'images/logo29new.png'%}"/>
+					</div>
+					<div class="gocar_tu"></div>
+				</div>
+				
+			</div>
+			<div class="mycar">
+				<div class="mycar_tu">
+					<h2>我的购物车</h2>
+				</div>
+			</div>
+		</div>	
+				
+{#		<div class="emptycar">#}
+{#			<div class="emptycar_box">#}
+{#				<div class="emptycar_img"></div>#}
+{#				<div class="emptycar_text">#}
+{#					<h1>你的购物车还是空的</h1>#}
+{#					<span class="go_index"><a href="{% url 'app:index' %}">去逛逛</a></span>#}
+{#				</div>#}
+{#			</div>#}
+{#		</div>#}
+{#		#}
+{#		<div class="mygoodscar">#}
+{#			<div class="mygoodscar_top">#}
+{#				<div class="mygoodscar_top_left">#}
+{#					<span class="mygoodscar_top_left_title">母音之家商城</span>#}
+{#					<span class="mygoodscar_top_left_car">母音之家商城购物车</span>#}
+{#				</div>#}
+{#				<div class="mygoodscar_top_right">#}
+{#					<span class="danjia">单价 （元）</span>#}
+{#					<span class="hownum">数量 （件）</span>#}
+{#					<span class="numcount">小计 （元）</span>#}
+{#					<span class="delete">操作</span>#}
+{#				</div>#}
+{#			</div>#}
+{#			<ul class="cargoods">#}
+{#                {% for cart in carts %}#}
+{#                    <li class="cargoods_type" id="cargoodssum" cartid = '{{ cart.id }}'>#}
+{#                        <div class="confirm-wrapper" cartid="{{ cart.id }}" isselect="{{ cart.isselect }}">#}
+{#                            {% if cart.isselect %}#}
+{#                                <span class="glyphicon glyphicon-ok"></span>#}
+{#                            {% else %}#}
+{#                                <span class="no"></span>#}
+{#                            {% endif %}#}
+{#                        </div>#}
+{#                        <a class="cargoods_type_image">#}
+{#                             <img src="{% static cart.goodsinfo.standard %}" alt="" />#}
+{#                        </a>#}
+{#                        <span class="cargoods_type_title"><a>{{ cart.goodsinfo.name }}</a></span>#}
+{#                        <span class="cargoods_type_danjia">#}
+{#                            <a class="newprice">￥<i class="price" price="{{ cart.goodsinfo.menoy }}">{{ cart.goodsinfo.menoy }}</i></a>#}
+{#                        </span>#}
+{##}
+{#                        <span class="cargoods_type_hownum">#}
+{#                            <div class="cargoods_type_hownum_box">#}
+{#                                <span class="num">#}
+{#                                    <i class="box_left" goodsid="{{ cart.goodsinfo.id }}">-</i>#}
+{#                                    <input type="text" id="num_mycar" value="{{ cart.number }}"  class="zhi"/>#}
+{#                                    <i class="box_right" goodsid="{{ cart.goodsinfo.id }}">+</i>#}
+{#                                </span>#}
+{#                            </div>#}
+{#                        </span>#}
+{##}
+{#                        <span class="cargoods_type_numcount">#}
+{#                            <a class="newprice">￥<i>{{ cart.goodsinfo.menoy }}</i></a>#}
+{#                        </span>#}
+{#                        <span class="cargoods_type_delete">#}
+{#                            <a id="id" goodsid="{{ cart.goodsinfo.id }}">删除</a>#}
+{#                        </span>#}
+{#                    </li>#}
+{##}
+{#                {% endfor %}#}
+{#			</ul>#}
+{##}
+{#            <div class="clearBox">#}
+{#                <a class="clearcar">清空购物车</a>#}
+{#                <div class="a-m">#}
+{#				<span class="a-m-a">#}
+{#					<a href="/orderinfo/">确认订单</a>#}
+{#				</span>#}
+{#                    <span class="a-m-menoy">167</span>#}
+{##}
+{#                    <span class="a-m-all">总共有<i>{{ count }}</i>件商品，总计（不含运费）</span>#}
+{##}
+{#                </div>#}
+{#            </div>#}
+{#		</div>#}
+{##}
+{##}
+{#		#}
+{##}
+{#		<div class="recommend">#}
+{#			<div class="recommend_top">#}
+{#				<ul>#}
+{#					<li class="recommend_top_li_select"><a href="">新品推荐</a></li>#}
+{#					<li><a href="">热销商品</a></li>#}
+{#				</ul>#}
+{#			</div>#}
+{#			<div class="recommend_box">#}
+{#				<span class="recommend_box_left"></span>#}
+{#				<span class="recommend_box_right"></span>#}
+{#				<div class="recommend_box_list">#}
+{#					<ul class="recomm_list">#}
+{#						<li>#}
+{#							<div class="recomm_list_box">#}
+{#								<div class="recomm_list_box_img">#}
+{#									<img src="{%static 'images/1ef5daaad33c7c2f_160X160.jpg'%}" alt="" />#}
+{#								</div>#}
+{#								<p class="recomm_list_box_name"><a href="">膳魔师高真空不锈钢两用瓶红色550ml（蓝盖）-带杯套</a></p>#}
+{#								<p class="recomm_list_box_price">368.00 <span class="old_price">468</span></p>#}
+{#								<a class="gotocar">加入购物车</a>#}
+{#							</div>#}
+{#						</li>#}
+{#					#}
+{#					#}
+{#						<li>#}
+{#							<div class="recomm_list_box">#}
+{#								<div class="recomm_list_box_img">#}
+{#									<img src="{%static 'images/157198_01_01.jpg'%}" alt="" />#}
+{#								</div>#}
+{#								<p class="recomm_list_box_name"><a href="">贝儿欣餐具套餐蓝色（围兜+吸盘+扭扭匙羹）</a></p>#}
+{#								<p class="recomm_list_box_price">368.00 <span class="old_price">63.2</span></p>#}
+{#								<a class="gotocar">加入购物车</a>#}
+{#							</div>#}
+{#						</li>#}
+{#					#}
+{#					#}
+{#						<li>#}
+{#							<div class="recomm_list_box">#}
+{#								<div class="recomm_list_box_img">#}
+{#									<img src="{%static 'images/155734_01_01.jpg'%}" alt="" />#}
+{#								</div>#}
+{#								<p class="recomm_list_box_name"><a href="">美国怡饭 Eat4Fun儿童不锈钢叉勺套装-海盗</a></p>#}
+{#								<p class="recomm_list_box_price">368.00 <span class="old_price">69.00</span></p>#}
+{#								<a class="gotocar">加入购物车</a>#}
+{#							</div>#}
+{#						</li>#}
+{#					#}
+{#				#}
+{#						<li>#}
+{#							<div class="recomm_list_box">#}
+{#								<div class="recomm_list_box_img">#}
+{#									<img src="{%static 'images/157293_01_01.jpg'%}" alt="" />#}
+{#								</div>#}
+{#								<p class="recomm_list_box_name"><a href="">利其尔电饭锅用煮粥器</a></p>#}
+{#								<p class="recomm_list_box_price">368.00 <span class="old_price">64</span></p>#}
+{#								<a class="gotocar">加入购物车</a>#}
+{#							</div>#}
+{#						</li>#}
+{#					</ul>#}
+{#				</div>#}
+{#			</div>#}
+{#		</div>#}
+		
+		<div class="footer">
+
+			
+			<div class="footer_bottom">
+				<div class="footer_bottom_box">
+					<p>Copyright©2003 - 2016 muyingzhijia.com All Rights Reserved&nbsp;&nbsp;沪ICP备09021709号</p>
+					<a >
+						<img src="{%static 'images/shanghai_industry.gif'%}" alt="" />
+					</a>
+					<p><span></span>沪公网安备&nbsp;&nbsp;31010402000751号</p>
+				</div>
+				
+			</div>
+		
+		</div>
+	</body>
+</html>

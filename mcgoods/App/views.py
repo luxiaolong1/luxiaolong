@@ -211,9 +211,6 @@ def goucar(request):
     account = request.session.get('account')
     # 传用户所在商品集合
 
-
-
-
     if account:
         user = User.objects.get(account=account)
         carts = Goucar.objects.filter(user=user).exclude(number=0)
@@ -341,7 +338,7 @@ def delgoods(request):
     carts = Goucar.objects.filter(user=user).filter(goodsinfo=goodsinfo)
     for cart in carts:
         cart.delete()
-
+        # cart.save()
     # cart.save()
     responseData = {
         'msg': '购物车商品删除操作成功',

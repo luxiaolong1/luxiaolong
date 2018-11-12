@@ -44,15 +44,20 @@ $(function () {
     })
 
     //# 删除
-    $('#id').click(function () {
-        var goodsid = $(this).attr('goodsid')
-        $.get('/delgoods/',{'goodsid':goodsid},function (response) {
-            if (response.status == 1){
-                $(this).parents("li").remove();
-                window.open('/goucar/', target = "_self")
-                Amount()
-            }
+    $('#id').each(function () {
+        $('.cargoods_type').click(function () {
+            var goodsid = $(this).find('#id').attr('goodsid')
+            $.get('/delgoods/',{'goodsid':goodsid},function (response) {
+                if (response.status == 1){
+                    // $(this).parents("li").remove();
+                    window.open('/goucar/', target = "_self")
+                    Amount()
+                }
+            })
+            // console.log(goodsid)
         })
+
+
 
     })
 
@@ -79,7 +84,8 @@ $(function () {
             // console.log(num)
             sum += price * num
         })
-        $('.clearBox .a-m-menoy').html(parseInt(sum))
+        $('.clearBox .a-m-menoy').show().html(parseInt(sum))
+
     }
 
     // 下单
